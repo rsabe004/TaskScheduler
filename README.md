@@ -34,25 +34,23 @@ As college students, having a task scheduler would be very useful for time manag
 
 
  > * What will be the input/output of your project? What are the features that the project provides?
-        * Inputs
+ >      * Inputs
  >          * Title of task
  >          * Task’s description 
  >          * Task type
  >          * Importance of task (priority)
  >          * Task duration 
  >          * Task deadline
-
-        * Outputs
->           * Display task and its description 
->           * Display list of tasks in order of importance 
-
-        * Features
->           * Ability to delete tasks  
->           * Ability to edit tasks 
->           * Display tasks
->           * Undo task 
->           * Can add subtasks under a main task 
->           * Users can create a list with multiple tasks
+ >      * Outputs
+ >          * Display task and its description 
+ >          * Display list of tasks in order of importance         
+ >      * Features
+ >          * Ability to delete tasks  
+ >          * Ability to edit tasks 
+ >          * Display tasks
+ >          * Undo task 
+ >          * Can add subtasks under a main task 
+ >          * Users can create a list with multiple tasks
 
 
  ## Phase II

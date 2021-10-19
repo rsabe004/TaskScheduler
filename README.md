@@ -23,7 +23,7 @@
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include:
  > * Why is it important or interesting to you?
-       * As college students, having a task scheduler would be very useful for time management and organization. This is a unique task scheduler because it allows you to prioritize certain tasks you would like to complete.
+As college students, having a task scheduler would be very useful for time management and organization. This is a unique task scheduler because it allows you to prioritize certain tasks you would like to complete.
 
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >      * [C++](https://www.cplusplus.com/) - programming language created by Bjarne Stroustrup.

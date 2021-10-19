@@ -33,7 +33,7 @@ As college students, having a task scheduler would be very useful for time manag
 
 
  > * What will be the input/output of your project? What are the features that the project provides?
- # Inputs 
+ ###### Inputs 
  * Title of task
  * Task’s description 
  * Task type
@@ -41,11 +41,11 @@ As college students, having a task scheduler would be very useful for time manag
  * Task duration 
  * Task deadline
 
-# Outputs
+###### Outputs
  * Display task and its description 
  * Display list of tasks in order of importance 
 
-# Features
+###### Features
  * Ability to delete tasks  
  * Ability to edit tasks 
  * Display tasks

@@ -54,7 +54,8 @@ As college students, having a task scheduler would be very useful for time manag
 > * Can add subtasks under a main task 
 > * Users can create a list with multiple tasks
 
- > ## Phase II
+
+ ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
  > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
  > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.

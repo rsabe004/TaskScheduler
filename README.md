@@ -26,32 +26,32 @@ As college students, having a task scheduler would be very useful for time manag
 
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
    * C++
- >   * Valgrind 
- >   * Gitk
- >   * CMake
- >   * Meld
+   * Valgrind 
+   * Gitk
+   * CMake
+   * Meld
 
 
  > * What will be the input/output of your project? What are the features that the project provides?
  # Inputs 
- >* Title of task
- >* Task’s description 
- >* Task type
- >* Importance of task (priority)
- >* Task duration 
- >* Task deadline
+ * Title of task
+ * Task’s description 
+ * Task type
+ * Importance of task (priority)
+ * Task duration 
+ * Task deadline
 
 # Outputs
- >* Display task and its description 
- >* Display list of tasks in order of importance 
+ * Display task and its description 
+ * Display list of tasks in order of importance 
 
 # Features
- >* Ability to delete tasks  
- >* Ability to edit tasks 
- >* Display tasks
- >* Undo task 
- >* Can add subtasks under a main task 
- >* Users can create a list with multiple tasks
+ * Ability to delete tasks  
+ * Ability to edit tasks 
+ * Display tasks
+ * Undo task 
+ * Can add subtasks under a main task 
+ * Users can create a list with multiple tasks
 
 
  

@@ -1,7 +1,7 @@
  > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# \<Project title\>
+# Task Scheduler 
  > Your author list below should include links to all members GitHub (remove existing author).
  
  > Authors: \<[Jeffrey McDaniel](https://github.com/jmcda001)\>
@@ -21,10 +21,40 @@
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include:
  > * Why is it important or interesting to you?
+As college students, having a task scheduler would be very useful for time management and organization. This is a unique task scheduler because it allows you to prioritize certain tasks you would like to complete.
+
+
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
+ >   * C++
+ >   * Valgrind 
+ >   * Gitk
+ >   * CMake
+ >   * Meld
+
+
  > * What will be the input/output of your project? What are the features that the project provides?
- > 
+ # Inputs 
+ >* Title of task
+ >* Task’s description 
+ >* Task type
+ >* Importance of task (priority)
+ >* Task duration 
+ >* Task deadline
+
+# Outputs
+ >* Display task and its description 
+ >* Display list of tasks in order of importance 
+
+# Features
+ >* Ability to delete tasks  
+ >* Ability to edit tasks 
+ >* Display tasks
+ >* Undo task 
+ >* Can add subtasks under a main task 
+ >* Users can create a list with multiple tasks
+
+
+ 
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > 
  > You also need to set up an empty project board by choosing the  “Automated kanban with review” option on Github. You should also have a Backlog and In testing columns added.

@@ -21,8 +21,8 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold one check-in meeting with your lab TA in addition to the final demo.
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include:
  > * Why is it important or interesting to you?
+
 As college students, having a task scheduler would be very useful for time management and organization. This is a unique task scheduler because it allows you to prioritize certain tasks you would like to complete.
 
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)

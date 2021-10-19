@@ -25,7 +25,7 @@ As college students, having a task scheduler would be very useful for time manag
 
 
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * C++
+   * C++
  >   * Valgrind 
  >   * Gitk
  >   * CMake

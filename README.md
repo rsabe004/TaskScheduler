@@ -21,6 +21,7 @@
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include:
  > * Why is it important or interesting to you?
+
 As college students, having a task scheduler would be very useful for time management and organization. This is a unique task scheduler because it allows you to prioritize certain tasks you would like to complete.
 
 

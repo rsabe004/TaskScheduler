@@ -6,8 +6,8 @@
  
  > Authors: [Jingwen Huang](https://github.com/JingwenHuang233),
  [Minsoo Kim](https://github.com/minsooerickim),
- > [Hannah Bach](https://github.com/hbach24),
- > Rania Saber
+ [Rania Saber](https://github.com/rsabe004),
+ [Hannah Bach](https://github.com/hbach24)
  
  > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list, start thinking about the features you will implement, what design patterns can help you implement them, and why. If you want to propose your own original idea, you will have to contact an instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). Your project needs to implement at least two design patterns iteratively, which you will have to justify for later phases.The project work should be divided almost equally among team members and each member is expected to work on at least one design pattern (more than one partner may work on a pattern) and some of its test cases. You can of course help each other, but it needs to be clear who will be responsible for which patterns and for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings. While Daily Scrums are not required we highly recommend you practice them too.
  
@@ -54,10 +54,7 @@ As college students, having a task scheduler would be very useful for time manag
  >          * Users can create a list with multiple tasks
 
 
- ## Phase II 
- ![alt text](Task_Scheduler_UML.png)
- > We used the composite pattern to implement the structure of Tasks and Lists; The two classes use the same interface, Scheduler. Specifically, the List class serves ?as the root of the composite pattern. Since we have two different objects in our scheduler, Tasks and Lists, we had to come up with a dynamic way of determining how to display such objects in their own individual manner. Therefore, we decided to use the strategy pattern to allow for change of algorithms at run-time. Using design patterns with both behavioral and structural purpose allows us to easily add new objects in our task scheduler and implement distinct algorithms for them. 
-
+ ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
  > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
  > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
@@ -65,7 +62,10 @@ As college students, having a task scheduler would be very useful for time manag
  >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
  > Include a class diagram(s) for your project and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
- 
+  
+  ![alt text](Task_Scheduler_UML.png)
+ > We used the composite pattern to implement the structure of Tasks and Lists; The two classes use the same interface, Scheduler. Specifically, the List class serves ?as the root of the composite pattern. Since we have two different objects in our scheduler, Tasks and Lists, we had to come up with a dynamic way of determining how to display such objects in their own individual manner. Therefore, we decided to use the strategy pattern to allow for change of algorithms at run-time. Using design patterns with both behavioral and structural purpose allows us to easily add new objects in our task scheduler and implement distinct algorithms for them. 
+
   ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
  > * Before the meeting you should perform a sprint plan like you did in Phase II.
@@ -96,4 +96,3 @@ As college students, having a task scheduler would be very useful for time manag
  > Instructions on installing and running your application
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
- 

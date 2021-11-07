@@ -62,7 +62,10 @@ As college students, having a task scheduler would be very useful for time manag
  >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
  > Include a class diagram(s) for your project and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
- 
+  
+  ![alt text](Task_Scheduler_UML.png)
+ > We used the composite pattern to implement the structure of Tasks and Lists; The two classes use the same interface, Scheduler. Specifically, the List class serves ?as the root of the composite pattern. Since we have two different objects in our scheduler, Tasks and Lists, we had to come up with a dynamic way of determining how to display such objects in their own individual manner. Therefore, we decided to use the strategy pattern to allow for change of algorithms at run-time. Using design patterns with both behavioral and structural purpose allows us to easily add new objects in our task scheduler and implement distinct algorithms for them. 
+
   ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
  > * Before the meeting you should perform a sprint plan like you did in Phase II.
@@ -93,4 +96,3 @@ As college students, having a task scheduler would be very useful for time manag
  > Instructions on installing and running your application
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
- 

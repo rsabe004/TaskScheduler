@@ -54,7 +54,10 @@ As college students, having a task scheduler would be very useful for time manag
  >          * Users can create a list with multiple tasks
 
 
- ## Phase II
+ ## Phase II 
+ ![alt text](Task_Scheduler_UML.png)
+ > We used the composite pattern to implement the structure of Tasks and Lists; The two classes use the same interface, Scheduler. Specifically, the List class serves ?as the root of the composite pattern. Since we have two different objects in our scheduler, Tasks and Lists, we had to come up with a dynamic way of determining how to display such objects in their own individual manner. Therefore, we decided to use the strategy pattern to allow for change of algorithms at run-time. Using design patterns with both behavioral and structural purpose allows us to easily add new objects in our task scheduler and implement distinct algorithms for them. 
+
  > In addition to completing the "Class Diagram" section below, you will need to:
  > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
  > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.

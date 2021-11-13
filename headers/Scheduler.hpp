@@ -1,9 +1,10 @@
 #ifndef __SCHEDULER_HPP__
 #define __SCHEDULER_HPP__
 
+#include "Menu.hpp"
 #include "Display.hpp"
 
-class Scheduler {
+class Scheduler: public Menu {
     protected:
         Display display;
     public:

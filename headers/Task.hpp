@@ -14,7 +14,9 @@ class Task: public Scheduler {
         double duration;
         string dueDate;
     public:
+        Task(int &);
         void displaySchedule();
+        int getID();
 };
 
 #endif //__TASK_HPP__

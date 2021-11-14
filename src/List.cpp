@@ -8,3 +8,8 @@ List::List(int &id) {
 int List::getID() {
     return this->id;
 }
+
+void List::add(Scheduler* task) {
+    children.push_back(task);
+} //adds a task to a list
+

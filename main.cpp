@@ -1,12 +1,11 @@
 #include "headers/Menu.hpp"
 #include "headers/Scheduler.hpp"
-#include "headers/Task.hpp"
-#include "headers/List.hpp"
 
 #include <iostream>
 using namespace std;
 
 int main() {
+    //unique id test
     static int idCounter = 0;
     
     List *test = new List(idCounter);
@@ -18,4 +17,6 @@ int main() {
     cout << endl << test3->getID();
     Task *test4 = new Task(idCounter);
     cout << endl << test4->getID();
+
+    //delete test
 }

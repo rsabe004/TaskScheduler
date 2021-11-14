@@ -6,4 +6,14 @@ class Display {
         void display();
 };
 
+class ListDisplay: public Display {
+    public:
+        void display();
+};
+
+class TaskDisplay: public Display {
+    public:
+        void display();
+};
+
 #endif //__DISPLAY_HPP__

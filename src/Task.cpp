@@ -1,4 +1,4 @@
-#include "../headers/Task.hpp"
+#include "../headers/Scheduler.hpp"
 
 Task::Task(int &id) {
     this->id = id;

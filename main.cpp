@@ -1,35 +1,50 @@
 #include "headers/Menu.hpp"
 #include "headers/Scheduler.hpp"
+#include "headers/Remove.hpp"
 
 #include <iostream>
 using namespace std;
 
 int main() {
-
     static int idCounter = 0;
 
-    List *test = new List(idCounter);
-    cout << test->getID();
-//    List *test2 = new List(idCounter);
-//    cout << endl << test2->getID();
+    Scheduler *list = new List(idCounter);
 
-    Task *test3 = new Task(idCounter);
-    cout << endl << test3->getID();
+    list->add(new Task(idCounter));
+    list->add(new Task(idCounter));
+    list->add(new Task(idCounter));
+    list->add(new Task(idCounter));
     
+    Scheduler *nestedList = new List(idCounter);
+    nestedList->add(new Task(idCounter));
+    nestedList->add(new Task(idCounter)); 
+    nestedList->add(new Task(idCounter)); 
+    nestedList->add(new Task(idCounter)); 
+    list->add(nestedList);
 
-    Task *test4 = new Task(idCounter);
-    test4->setName("Lab 6");
-    test4->setDescription("Finish unit tests");
-    test4->setPriority(2);
-    test4->setDuration(4);
-    test4->setDueDate("Nov 20");
+    list->displaySchedule();
 
-    cout << endl << test4->getID() << endl;
-    cout << "Name: " << test4->getName() << endl;
-    cout << "Description: " << test4->getDescription() << endl;
-    cout << "Priority: " << test4->getPriority() << endl;
-    cout << "Duration: " << test4->getDuration() << endl;
-    cout << "Due date: " << test4->getDueDate() << endl;
+    //if id is task (ask for task id and list id)
+    int listId = 0;
+    int taskID = 2;
+    Remove *remove = new RemoveTask;
+    remove->remove(taskID, list->getChildren(listId)); 
+    cout << endl;
+    list->displaySchedule();
 
+    //if id is task in a nested list
+    listId = 5;
+    taskID = 6;
+    remove = new RemoveTask;
+    remove->remove(taskID, list->getChildren(listId)); 
+    cout << endl;
+    list->displaySchedule();
+    
+    //if id is list
+    listId = 5;
+    remove = new RemoveList;
+    remove->remove(listId, list->getChildren(listId));
+    cout << endl;
 
+    list->displaySchedule();
 }

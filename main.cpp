@@ -62,5 +62,13 @@ int main(){
         }
     }
     cout << "\nThanks for using our task scheduler!";
-    return 0;
-}
+
+    /*static int idCounter = 0;
+    Task *test4 = new Task(idCounter);
+    test4->setClassification("Labs");
+
+    cout << test4->getID() << endl;
+    cout << "Classification: " << test4->getClassification() << endl;*/
+
+return 0;
+}	

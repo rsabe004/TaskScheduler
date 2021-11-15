@@ -31,6 +31,10 @@ void Task::setDueDate(string date) {
     dueDate = date;
 }
 
+void Task::setClassification(string c) {
+    classification = c;
+}
+
 string Task::getName() {
     return this->name;
 }
@@ -49,6 +53,10 @@ double Task::getDuration() {
 
 string Task::getDueDate() {
     return this->dueDate;
+}
+
+string Task::getClassification() {
+    return this->classification;
 }
 
 void Task::displaySchedule() {

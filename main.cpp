@@ -52,13 +52,11 @@ int main(){
             menu.displayMenu();
             cin >> userInput;
         }
-        // JingwenH's working on options e and f
-        // if (userInput == "e" || userInput == "E"){
-        //     schedule->displayList();
-        // }
-        // if (userInput == "f" || userInput == "F"){
-        //         displayTask();
-        // }
+        else if (userInput == 'E') {
+            schedule->displaySchedule();
+            menu.displayMenu();
+            cin >> userInput;
+        }
         else {
             break;
         }

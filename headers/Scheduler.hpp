@@ -2,7 +2,7 @@
 #define __SCHEDULER_HPP__
 
 #include "Menu.hpp"
-#include "Remove.hpp"
+//#include "Remove.hpp"
 #include "Display.hpp"
 
 #include <vector>
@@ -13,12 +13,12 @@ using namespace std;
 class Scheduler: public Menu {
     protected:
         Display *displayPtr;
-        Remove *removePtr;
+//        Remove *removePtr;
         int id;
     public:
         Scheduler() {
             displayPtr = nullptr;
-            removePtr = nullptr;
+//            removePtr = nullptr;
         };
         void displaySchedule();
         void add(Scheduler*);
@@ -38,6 +38,17 @@ class Task: public Scheduler {
         Task(int &);
         void displaySchedule();
         int getID();
+	void setName(string);
+        void setDescription(string);
+        void setPriority(int);
+        void setDuration(double);
+        void setDueDate(string);
+
+        string getName();
+        string getDescription();
+        int getPriority();
+        double getDuration();
+        string getDueDate();
 };
 
 class List: public Scheduler {

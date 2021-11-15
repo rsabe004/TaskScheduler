@@ -4,32 +4,42 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+int main(){
 
-    static int idCounter = 0;
+  char userInput;
 
-    List *test = new List(idCounter);
-    cout << test->getID();
-//    List *test2 = new List(idCounter);
-//    cout << endl << test2->getID();
-
-    Task *test3 = new Task(idCounter);
-    cout << endl << test3->getID();
-    
-
-    Task *test4 = new Task(idCounter);
-    test4->setName("Lab 6");
-    test4->setDescription("Finish unit tests");
-    test4->setPriority(2);
-    test4->setDuration(4);
-    test4->setDueDate("Nov 20");
-
-    cout << endl << test4->getID() << endl;
-    cout << "Name: " << test4->getName() << endl;
-    cout << "Description: " << test4->getDescription() << endl;
-    cout << "Priority: " << test4->getPriority() << endl;
-    cout << "Duration: " << test4->getDuration() << endl;
-    cout << "Due date: " << test4->getDueDate() << endl;
+          while((userInput != "q") || (userInput != "Q")){
+                  displayMenu();
 
 
+                  cin >> userInput;
+
+                  while(userInput != "A" && userInput != "B" && userInput != "C"
+                          userInput != "D" && userInput != "E" && userInput != "F" && userInput != "Q"){
+
+                                  cout << "Please enter a valid input." <<endl;
+                                  cout << displayMenu();
+                                  cin >> userInput;
+                  }
+
+                  if (userInput == "a" || userInput == "A"){
+                          addList();
+                  }
+                  if (userInput == "b" || userInput == "B"){
+                          removeList();
+                  }
+                  if (userInput == "c" || userInput == "C"){
+                          addTask();
+                  }
+                  if (userInput == "d" || userInput == "D"){
+                          removeTask();
+                  }
+                  if (userInput == "e" || userInput == "E"){
+                          displayList();
+                  }
+                  if (userInput == "f" || userInput == "F"){
+                          displayTask();
+                  }
+  }
+  return 0;
 }

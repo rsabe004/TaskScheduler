@@ -11,20 +11,21 @@ void TaskDisplay::display(){
 	<<"Duration: "<<task->getDuration()<<" | "<<"Due Date: "<<task->getDueDate()<<endl
 	<<"====================\n";
 }
-
+/*
 void ListDisplay::display(){
     cout<< "====================\n";
-    cout<<"Priority: "<<list->children[0]->getPriority()<<endl
-            <<"Name: "<<list->children[0]->getName()<<endl
-            <<"Description: "<<list->children[0]->getDescription()<<endl
-            <<"Duration: "<<list->children[0]->getDuration()<<" | "<<"Due Date: "<<list->children[0]->getDueDate()<<endl;
+    cout<<"Priority: "<<l->children[0]->getPriority()<<endl
+            <<"Name: "<<l->children[0]->getName()<<endl
+            <<"Description: "<<l->children[0]->getDescription()<<endl
+            <<"Duration: "<<l->children[0]->getDuration()<<" | "<<"Due Date: "<<l->children[0]->getDueDate()<<endl;
 		
-    for (int i = 1; i<list->children.size(); ++i){
+    for (int i = 1; i<l->children.size(); ++i){
 	cout<<"--------------------\n"
-	    <<"Priority: "<<list->children[i]->getPriority()<<endl
-            <<"Name: "<<list->children[i]->getName()<<endl
-            <<"Description: "<<list->children[i]->getDescription()<<endl
-            <<"Duration: "<<list->children[i]->getDuration()<<" | "<<"Due Date: "<<list->children[i]->getDueDate()<<endl;
+	    <<"Priority: "<<l->children[i]->getPriority()<<endl
+            <<"Name: "<<l->children[i]->getName()<<endl
+            <<"Description: "<<l->children[i]->getDescription()<<endl
+            <<"Duration: "<<l->children[i]->getDuration()<<" | "<<"Due Date: "<<l->children[i]->getDueDate()<<endl;
     }
     cout<<"====================\n";
 }
+*/

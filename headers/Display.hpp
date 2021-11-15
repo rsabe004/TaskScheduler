@@ -9,9 +9,9 @@ class Display {
 
 class ListDisplay: public Display {
     private:
-        List* list;
+        List* l;
     public:
-        ListDisplay(List* list):list(list){}
+        ListDisplay(List* list):l(list){}
         void display();
 };
 

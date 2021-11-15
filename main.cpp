@@ -26,18 +26,18 @@ int main() {
     test4->setDueDate("Nov 20");
     
     Task *test5 = new Task(idCounter);
-    test4->setName("Lab 7");
-    test4->setDescription("Check Memory Leak");
-    test4->setPriority(3);
-    test4->setDuration(4);
-    test4->setDueDate("Nov 25");
+    test5->setName("Lab 7");
+    test5->setDescription("Check Memory Leak");
+    test5->setPriority(3);
+    test5->setDuration(4);
+    test5->setDueDate("Nov 25");
     
     Task *test6 = new Task(idCounter);
-    test4->setName("Final");
-    test4->setDescription("Study final exam");
-    test4->setPriority(1);
-    test4->setDuration(14);
-    test4->setDueDate("Dec 4");
+    test6->setName("Final");
+    test6->setDescription("Study final exam");
+    test6->setPriority(1);
+    test6->setDuration(14);
+    test6->setDueDate("Dec 4");
 
     cout << endl << test4->getID() << endl;
     cout << "Name: " << test4->getName() << endl;
@@ -49,10 +49,11 @@ int main() {
     Display* display = new TaskDisplay(test4);
     display->display();
   
-    List* L1 = new List(idCounter);
-    L1->add(test4);
-    L1->add(test5);
-    L1->add(test6);
-    Display* d2 = new ListDisplay(L1);
-    d2->display();   
+    //Scheduler* L1 = new List(idCounter);
+    //L1->add(test4);
+    //L1->add(test5);
+    //L1->add(test6);
+    //cout<< L1->children[0]->getName();
+    //Display* d2 = new ListDisplay(L1);
+    //d2->display();   
 }

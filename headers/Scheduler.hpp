@@ -4,7 +4,7 @@
 #include "Menu.hpp"
 //#include "Remove.hpp"
 //#include "Display.hpp"
-
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -14,9 +14,15 @@ class Scheduler: public Menu {
     protected:
         //Display *displayPtr;
 //        Remove *removePtr;
+	string name;
+	string description;
+	int priority;
+	double duration;
+	string dueDate;
+//
         int id;
     public:
-        Scheduler() {
+	Scheduler() {
             //displayPtr = nullptr;
 //            removePtr = nullptr;
         };
@@ -24,7 +30,7 @@ class Scheduler: public Menu {
         void add(Scheduler*);
         void edit(Scheduler*);
         void remove(int);
-        int getID();
+	int getID();
 };
 
 class Task: public Scheduler {

@@ -1,4 +1,6 @@
 #include "../headers/Scheduler.hpp"
+#include <iostream>
+using namespace std;
 
 Task::Task(int &id) {
     this->id = id;
@@ -47,5 +49,9 @@ double Task::getDuration() {
 
 string Task::getDueDate() {
     return this->dueDate;
+}
+
+void Task::displaySchedule() {
+    cout << this->getID() << " ";
 }
 

@@ -1,45 +1,66 @@
 #include "headers/Menu.hpp"
 #include "headers/Scheduler.hpp"
+#include "headers/Remove.hpp"
 
 #include <iostream>
+#include <cctype>
 using namespace std;
 
 int main(){
+    static int id = 0;
+    Menu menu;
+    Scheduler *schedule = new List(id);
 
-  char userInput;
+    int listID = 0;
+    int taskID = 0;
+    char userInput;
 
-          while((userInput != "q") || (userInput != "Q")){
-                  displayMenu();
+    menu.displayMenu();
+    cin >> userInput;
 
+    while ((userInput != 'q') || (userInput != 'Q')) {
+        userInput = toupper(userInput);
+        if (userInput == 'A'){
+            schedule->add(new List(id));
+            menu.displayMenu();
+            cin >> userInput;
+        }
+        else if (userInput == 'B'){
+            cout << "Enter the ID of the list to be deleted: ";
+            cin >> listID;
+            Remove *remove = new RemoveList;
+            remove->remove(listID, schedule->getChildren(listID));
 
-                  cin >> userInput;
+            menu.displayMenu();
+            cin >> userInput;
+        }
+        else if (userInput == 'C'){
+            //implement which list to add task under
+            schedule->add(new Task(id));
 
-                  while(userInput != "A" && userInput != "B" && userInput != "C"
-                          userInput != "D" && userInput != "E" && userInput != "F" && userInput != "Q"){
+            menu.displayMenu();
+            cin >> userInput;
+        }
+        else if (userInput == 'D'){
+            cout << "Enter the ID of the task to be deleted: ";
+            cin >> taskID;
+            cout << "Enter the List the ID is under: ";
+            cin >> listID;
+            Remove *remove = new RemoveTask;
+            remove->remove(taskID, schedule->getChildren(listID));
 
-                                  cout << "Please enter a valid input." <<endl;
-                                  cout << displayMenu();
-                                  cin >> userInput;
-                  }
-
-                  if (userInput == "a" || userInput == "A"){
-                          addList();
-                  }
-                  if (userInput == "b" || userInput == "B"){
-                          removeList();
-                  }
-                  if (userInput == "c" || userInput == "C"){
-                          addTask();
-                  }
-                  if (userInput == "d" || userInput == "D"){
-                          removeTask();
-                  }
-                  if (userInput == "e" || userInput == "E"){
-                          displayList();
-                  }
-                  if (userInput == "f" || userInput == "F"){
-                          displayTask();
-                  }
-  }
-  return 0;
+            menu.displayMenu();
+            cin >> userInput;
+        }
+        else if (userInput == 'E') {
+            schedule->displaySchedule();
+            menu.displayMenu();
+            cin >> userInput;
+        }
+        else {
+            break;
+        }
+    }
+    cout << "\nThanks for using our task scheduler!";
+    return 0;
 }

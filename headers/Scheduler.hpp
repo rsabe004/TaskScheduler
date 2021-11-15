@@ -16,15 +16,19 @@ class Scheduler: public Menu {
 //        Remove *removePtr;
         int id;
     public:
+        vector<Scheduler*> children;
         Scheduler() {
             displayPtr = nullptr;
 //            removePtr = nullptr;
         };
-        void displaySchedule();
-        void add(Scheduler*);
+        virtual void displaySchedule() = 0;
+        virtual void add(Scheduler*) {};
         void edit(Scheduler*);
         void remove(int);
-        int getID();
+        virtual int getID() {
+            return this->id;
+        }
+        virtual vector<Scheduler*>& getChildren(int) {return children;};
 };
 
 class Task: public Scheduler {
@@ -38,7 +42,7 @@ class Task: public Scheduler {
         Task(int &);
         void displaySchedule();
         int getID();
-	void setName(string);
+	    void setName(string);
         void setDescription(string);
         void setPriority(int);
         void setDuration(double);
@@ -52,7 +56,7 @@ class Task: public Scheduler {
 };
 
 class List: public Scheduler {
-    private:
+    public:
         std::vector<Scheduler*> children;
     public:
         List(int &);
@@ -61,6 +65,7 @@ class List: public Scheduler {
         void edit(Scheduler*);
         void remove(int);
         int getID();
+        vector<Scheduler*>& getChildren(int);
 };
 
 #endif //__SCHEDULER_HPP__

@@ -3,7 +3,7 @@
 
 #include "Menu.hpp"
 //#include "Remove.hpp"
-#include "Display.hpp"
+//#include "Display.hpp"
 
 #include <vector>
 #include <string>
@@ -12,12 +12,12 @@ using namespace std;
 
 class Scheduler: public Menu {
     protected:
-        Display *displayPtr;
+        //Display *displayPtr;
 //        Remove *removePtr;
         int id;
     public:
         Scheduler() {
-            displayPtr = nullptr;
+            //displayPtr = nullptr;
 //            removePtr = nullptr;
         };
         void displaySchedule();
@@ -52,9 +52,8 @@ class Task: public Scheduler {
 };
 
 class List: public Scheduler {
-    private:
-        std::vector<Scheduler*> children;
     public:
+        std::vector<Scheduler*> children;
         List(int &);
         void displaySchedule();
         void add(Scheduler*);

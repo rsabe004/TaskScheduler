@@ -1,5 +1,6 @@
 #include "headers/Menu.hpp"
 #include "headers/Scheduler.hpp"
+#include "headers/Display.hpp"
 
 #include <iostream>
 using namespace std;
@@ -23,6 +24,20 @@ int main() {
     test4->setPriority(2);
     test4->setDuration(4);
     test4->setDueDate("Nov 20");
+    
+    Task *test5 = new Task(idCounter);
+    test4->setName("Lab 7");
+    test4->setDescription("Check Memory Leak");
+    test4->setPriority(3);
+    test4->setDuration(4);
+    test4->setDueDate("Nov 25");
+    
+    Task *test6 = new Task(idCounter);
+    test4->setName("Final");
+    test4->setDescription("Study final exam");
+    test4->setPriority(1);
+    test4->setDuration(14);
+    test4->setDueDate("Dec 4");
 
     cout << endl << test4->getID() << endl;
     cout << "Name: " << test4->getName() << endl;
@@ -31,5 +46,13 @@ int main() {
     cout << "Duration: " << test4->getDuration() << endl;
     cout << "Due date: " << test4->getDueDate() << endl;
 
-
+    Display* display = new TaskDisplay(test4);
+    display->display();
+  
+    List* L1 = new List(idCounter);
+    L1->add(test4);
+    L1->add(test5);
+    L1->add(test6);
+    Display* d2 = new ListDisplay(L1);
+    d2->display();   
 }

@@ -4,7 +4,6 @@
 class Menu {
     public:
         void displayMenu();
-        // void display
 };
 
 #endif //__MENU__

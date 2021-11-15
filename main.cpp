@@ -3,48 +3,66 @@
 #include "headers/Remove.hpp"
 
 #include <iostream>
+#include <cctype>
 using namespace std;
 
-int main() {
-    static int idCounter = 0;
+int main(){
+    static int id = 0;
+    Menu menu;
+    Scheduler *schedule = new List(id);
 
-    Scheduler *list = new List(idCounter);
+    int listID = 0;
+    int taskID = 0;
+    char userInput;
 
-    list->add(new Task(idCounter));
-    list->add(new Task(idCounter));
-    list->add(new Task(idCounter));
-    list->add(new Task(idCounter));
-    
-    Scheduler *nestedList = new List(idCounter);
-    nestedList->add(new Task(idCounter));
-    nestedList->add(new Task(idCounter)); 
-    nestedList->add(new Task(idCounter)); 
-    nestedList->add(new Task(idCounter)); 
-    list->add(nestedList);
+    menu.displayMenu();
+    cin >> userInput;
 
-    list->displaySchedule();
+    while ((userInput != 'q') || (userInput != 'Q')) {
+        userInput = toupper(userInput);
+        if (userInput == 'A'){
+            schedule->add(new List(id));
+            menu.displayMenu();
+            cin >> userInput;
+        }
+        else if (userInput == 'B'){
+            cout << "Enter the ID of the list to be deleted: ";
+            cin >> listID;
+            Remove *remove = new RemoveList;
+            remove->remove(listID, schedule->getChildren(listID));
 
-    //if id is task (ask for task id and list id)
-    int listId = 0;
-    int taskID = 2;
-    Remove *remove = new RemoveTask;
-    remove->remove(taskID, list->getChildren(listId)); 
-    cout << endl;
-    list->displaySchedule();
+            menu.displayMenu();
+            cin >> userInput;
+        }
+        else if (userInput == 'C'){
+            //implement which list to add task under
+            schedule->add(new Task(id));
 
-    //if id is task in a nested list
-    listId = 5;
-    taskID = 6;
-    remove = new RemoveTask;
-    remove->remove(taskID, list->getChildren(listId)); 
-    cout << endl;
-    list->displaySchedule();
-    
-    //if id is list
-    listId = 5;
-    remove = new RemoveList;
-    remove->remove(listId, list->getChildren(listId));
-    cout << endl;
+            menu.displayMenu();
+            cin >> userInput;
+        }
+        else if (userInput == 'D'){
+            cout << "Enter the ID of the task to be deleted: ";
+            cin >> taskID;
+            cout << "Enter the List the ID is under: ";
+            cin >> listID;
+            Remove *remove = new RemoveTask;
+            remove->remove(taskID, schedule->getChildren(listID));
 
-    list->displaySchedule();
+            menu.displayMenu();
+            cin >> userInput;
+        }
+        // JingwenH's working on options e and f
+        // if (userInput == "e" || userInput == "E"){
+        //     schedule->displayList();
+        // }
+        // if (userInput == "f" || userInput == "F"){
+        //         displayTask();
+        // }
+        else {
+            break;
+        }
+    }
+    cout << "\nThanks for using our task scheduler!";
+    return 0;
 }

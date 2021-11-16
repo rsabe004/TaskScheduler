@@ -37,7 +37,8 @@ class Task: public Scheduler {
         string description;
         int priority;
         double duration;
-        string dueDate;
+	string dueDate;
+	string classification;
     public:
         Task(int &);
         void displaySchedule();
@@ -47,12 +48,14 @@ class Task: public Scheduler {
         void setPriority(int);
         void setDuration(double);
         void setDueDate(string);
+	void setClassification(string);
 
         string getName();
         string getDescription();
         int getPriority();
         double getDuration();
         string getDueDate();
+	string getClassification();
 };
 
 class List: public Scheduler {

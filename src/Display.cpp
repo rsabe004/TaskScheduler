@@ -1,15 +1,14 @@
 #include "../headers/Display.hpp"
+#include "../headers/Scheduler.hpp"
 #include <iostream>
 
 using namespace std;
 
-void TaskDisplay::display(){
-    cout<< "====================\n"
-	<<"Priority: "<<task->getPriority()<<endl
+void TaskDisplay::display(Scheduler* task){
+    cout<<"Priority: "<<task->getPriority()<<endl
 	<<"Name: "<<task->getName()<<endl
 	<<"Description: "<<task->getDescription()<<endl
-	<<"Duration: "<<task->getDuration()<<" | "<<"Due Date: "<<task->getDueDate()<<endl
-	<<"====================\n";
+	<<"Duration: "<<task->getDuration()<<" | "<<"Due Date: "<<task->getDueDate()<<endl;
 }
 /*
 void ListDisplay::display(){

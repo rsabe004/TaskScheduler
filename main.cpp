@@ -1,59 +1,76 @@
 #include "headers/Menu.hpp"
 #include "headers/Scheduler.hpp"
-#include "headers/Display.hpp"
+#include "headers/Remove.hpp"
 
 #include <iostream>
+#include <cctype>
 using namespace std;
 
-int main() {
+int main(){
+    static int id = 0;
+    Scheduler* test = new Task(id);
+    test->setName("Lab 6");
+    test->setDescription("Finish unit tests");
+    test->setPriority(2);
+    test->setDuration(4);
+    test->setDueDate("Nov 20");
+    test->displaySchedule();
+/*
+    Menu menu;
+    Scheduler *schedule = new List(id);
 
-    static int idCounter = 0;
+    int listID = 0;
+    int taskID = 0;
+    char userInput;
 
-    List *test = new List(idCounter);
-    cout << test->getID();
-//    List *test2 = new List(idCounter);
-//    cout << endl << test2->getID();
+    menu.displayMenu();
+    cin >> userInput;
 
-    Task *test3 = new Task(idCounter);
-    cout << endl << test3->getID();
-    
+    while ((userInput != 'q') || (userInput != 'Q')) {
+        userInput = toupper(userInput);
+        if (userInput == 'A'){
+            schedule->add(new List(id));
+            menu.displayMenu();
+            cin >> userInput;
+        }
+        else if (userInput == 'B'){
+            cout << "Enter the ID of the list to be deleted: ";
+            cin >> listID;
+            Remove *remove = new RemoveList;
+            remove->remove(listID, schedule->getChildren(listID));
 
-    Task *test4 = new Task(idCounter);
-    test4->setName("Lab 6");
-    test4->setDescription("Finish unit tests");
-    test4->setPriority(2);
-    test4->setDuration(4);
-    test4->setDueDate("Nov 20");
-    
-    Task *test5 = new Task(idCounter);
-    test5->setName("Lab 7");
-    test5->setDescription("Check Memory Leak");
-    test5->setPriority(3);
-    test5->setDuration(4);
-    test5->setDueDate("Nov 25");
-    
-    Task *test6 = new Task(idCounter);
-    test6->setName("Final");
-    test6->setDescription("Study final exam");
-    test6->setPriority(1);
-    test6->setDuration(14);
-    test6->setDueDate("Dec 4");
+            menu.displayMenu();
+            cin >> userInput;
+        }
+        else if (userInput == 'C'){
+            //implement which list to add task under
+            schedule->add(new Task(id));
 
-    cout << endl << test4->getID() << endl;
-    cout << "Name: " << test4->getName() << endl;
-    cout << "Description: " << test4->getDescription() << endl;
-    cout << "Priority: " << test4->getPriority() << endl;
-    cout << "Duration: " << test4->getDuration() << endl;
-    cout << "Due date: " << test4->getDueDate() << endl;
 
-    Display* display = new TaskDisplay(test4);
-    display->display();
-  
-    //Scheduler* L1 = new List(idCounter);
-    //L1->add(test4);
-    //L1->add(test5);
-    //L1->add(test6);
-    //cout<< L1->children[0]->getName();
-    //Display* d2 = new ListDisplay(L1);
-    //d2->display();   
-}
+            menu.displayMenu();
+            cin >> userInput;
+        }
+        else if (userInput == 'D'){
+            cout << "Enter the ID of the task to be deleted: ";
+            cin >> taskID;
+            cout << "Enter the List the ID is under: ";
+            cin >> listID;
+            Remove *remove = new RemoveTask;
+            remove->remove(taskID, schedule->getChildren(listID));
+
+            menu.displayMenu();
+            cin >> userInput;
+        }
+        else if (userInput == 'E') {
+            schedule->displaySchedule();
+            menu.displayMenu();
+            cin >> userInput;
+        }
+        else {
+            break;
+        }
+    }
+    cout << "\nThanks for using our task scheduler!";
+*/
+return 0;
+}	

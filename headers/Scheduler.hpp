@@ -3,12 +3,16 @@
 
 #include "Menu.hpp"
 //#include "Remove.hpp"
-#include "Display.hpp"
+//#include "Display.hpp"
 
 #include <vector>
 #include <string>
+#include <iosfwd>
 
 using namespace std;
+
+
+class Display;
 
 class Scheduler: public Menu {
     protected:
@@ -16,19 +20,35 @@ class Scheduler: public Menu {
 //        Remove *removePtr;
         int id;
     public:
-        vector<Scheduler*> children;
+        //vector<Scheduler*> children;
+        ~Scheduler();
         Scheduler() {
             displayPtr = nullptr;
 //            removePtr = nullptr;
-        };
-        virtual void displaySchedule() = 0;
+        }
+        virtual void displaySchedule(){}
         virtual void add(Scheduler*) {};
         void edit(Scheduler*);
         void remove(int);
+	virtual void setName(string){}
+        virtual void setDescription(string){}
+        virtual void setPriority(int){}
+        virtual void setDuration(double){}
+        virtual void setDueDate(string){}
+        virtual void setClassification(string){}
+
+        virtual string getName(){}
+        virtual string getDescription(){}
+        virtual int getPriority(){}
+        virtual double getDuration(){}
+        virtual string getDueDate(){}
+        virtual string getClassification(){}
+	
         virtual int getID() {
             return this->id;
         }
-        virtual vector<Scheduler*>& getChildren(int) {return children;};
+        virtual vector<Scheduler*>& getChildren(int) {}
+	virtual bool is_list(){}
 };
 
 class Task: public Scheduler {
@@ -43,7 +63,7 @@ class Task: public Scheduler {
         Task(int &);
         void displaySchedule();
         int getID();
-	    void setName(string);
+        void setName(string);
         void setDescription(string);
         void setPriority(int);
         void setDuration(double);
@@ -56,6 +76,7 @@ class Task: public Scheduler {
         double getDuration();
         string getDueDate();
 	string getClassification();
+	bool is_list(){return false;}
 };
 
 class List: public Scheduler {
@@ -69,6 +90,7 @@ class List: public Scheduler {
         void remove(int);
         int getID();
         vector<Scheduler*>& getChildren(int);
+	bool is_list(){return true;}
 };
 
 #endif //__SCHEDULER_HPP__

@@ -1,4 +1,5 @@
 #include "../headers/Scheduler.hpp"
+#include "../headers/Display.hpp"
 #include <iostream>
 using namespace std;
 
@@ -59,7 +60,17 @@ string Task::getClassification() {
     return this->classification;
 }
 
-void Task::displaySchedule() {
-    cout << this->getID() << " ";
+void Task::displaySchedule(){
+    cout<<"1-Full Display\n2-Compact Display\n";
+    int choice;
+    cin>>choice;
+    if(choice == 1){
+	displayPtr = new FullDisplay;
+    }
+    else if (choice == 2){
+	displayPtr = new CompactDisplay;	
+    }
+    
+    displayPtr->display(this);
 }
 

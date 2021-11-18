@@ -18,7 +18,7 @@ class TaskDisplay: public Display {
 	void display(Scheduler* s);
 };
 
-class FullDisplay: public TaskDisplay {
+class FullDisplay: public Display {
     public:
 	void display(Scheduler* s);
 };
@@ -26,5 +26,5 @@ class FullDisplay: public TaskDisplay {
 class CompactDisplay: public Display {
     public:
 	void display(Scheduler* s);
-} 
+}; 
 #endif //__DISPLAY_HPP__

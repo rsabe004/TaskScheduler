@@ -21,3 +21,31 @@ void ListDisplay::display(Scheduler* s){
     }
 }
 
+void FullDisplay::display(Scheduler* s){
+    Display* d = new TaskDisplay;
+    if (!s->is_list()){
+	d->display(s);	
+    }
+    else{
+	d = new ListDisplay;
+	d->display(s);
+    }
+}
+
+void CompactDisplay::display(Scheduler* s){
+    if (!s->is_list()){
+	cout<<"Name: "<<s->getName()<<endl
+	    <<"Due Date: "<<s->getDueDate()<<endl;	
+    }
+    else{
+	vector<Scheduler* > children = s->getChildren(s->getID());
+	cout<<"Name: "<<children[0]->getName()<<endl
+            <<"Due Date: "<<children[0]->getDueDate()<<endl;
+	for (int i = 1; i<children.size(); ++i){
+            cout<<"--------------------\n"
+		<<"Name: "<<children[i]->getName()<<endl
+                <<"Due Date: "<<children[i]->getDueDate()<<endl;
+        }
+    }
+		
+}

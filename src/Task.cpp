@@ -61,7 +61,16 @@ string Task::getClassification() {
 }
 
 void Task::displaySchedule(){
-    displayPtr = new TaskDisplay;
+    cout<<"1-Full Display\n2-Compact Display\n";
+    int choice;
+    cin>>choice;
+    if(choice == 1){
+	displayPtr = new FullDisplay;
+    }
+    else if (choice == 2){
+	displayPtr = new CompactDisplay;	
+    }
+    
     displayPtr->display(this);
 }
 

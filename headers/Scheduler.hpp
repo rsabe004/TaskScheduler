@@ -27,7 +27,7 @@ class Scheduler: public Menu {
 //            removePtr = nullptr;
         }
         virtual void displaySchedule(){}
-        //virtual void add(Scheduler*) {};
+        virtual void add(Scheduler*) {};
         void edit(Scheduler*);
         void remove(int);
 	virtual void setName(string){}
@@ -47,7 +47,7 @@ class Scheduler: public Menu {
         virtual int getID() {
             return this->id;
         }
-        //virtual vector<Scheduler*>& getChildren(int) {return children;};
+        virtual vector<Scheduler*>& getChildren(int) {}
 };
 
 class Task: public Scheduler {

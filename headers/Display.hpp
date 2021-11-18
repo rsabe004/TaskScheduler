@@ -10,7 +10,7 @@ class Display {
 
 class ListDisplay: public Display {
     public:
-        void display();
+        void display(Scheduler* s);
 };
 
 class TaskDisplay: public Display {

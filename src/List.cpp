@@ -1,4 +1,5 @@
 #include "../headers/Scheduler.hpp"
+#include "../headers/Display.hpp"
 #include <iostream>
 using namespace std;
 
@@ -31,6 +32,10 @@ vector<Scheduler*>& List::getChildren(int id) {
 }
 
 void List::displaySchedule() {
+	displayPtr = new ListDisplay;
+	cout<<"====================\n";
+	displayPtr->display(this);
+	cout<<"====================\n";
 /*
     cout << this->getID();
     // cout << "\nList id(" << this->getID() << ") contains the following\n";

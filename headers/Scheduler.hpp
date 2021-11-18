@@ -48,6 +48,7 @@ class Scheduler: public Menu {
             return this->id;
         }
         virtual vector<Scheduler*>& getChildren(int) {}
+	virtual bool is_list(){}
 };
 
 class Task: public Scheduler {
@@ -75,6 +76,7 @@ class Task: public Scheduler {
         double getDuration();
         string getDueDate();
 	string getClassification();
+	bool is_list(){return false;}
 };
 
 class List: public Scheduler {
@@ -88,6 +90,7 @@ class List: public Scheduler {
         void remove(int);
         int getID();
         vector<Scheduler*>& getChildren(int);
+	bool is_list(){return true;}
 };
 
 #endif //__SCHEDULER_HPP__

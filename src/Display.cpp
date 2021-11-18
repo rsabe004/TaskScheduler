@@ -13,10 +13,11 @@ void TaskDisplay::display(Scheduler* task){
 
 void ListDisplay::display(Scheduler* s){
     vector<Scheduler* > children = s->getChildren(s->getID());
-    children[0]->displaySchedule();
-    for (int i = 0; i<children.size(); ++i){
+    Display* d = new TaskDisplay;
+    d->display(children[0]);
+    for (int i = 1; i<children.size(); ++i){
 	cout<<"--------------------\n";
-	children[i]->displaySchedule();	
+	d->display(children[i]);	
     }
 }
 

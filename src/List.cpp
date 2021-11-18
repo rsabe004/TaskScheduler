@@ -32,10 +32,18 @@ vector<Scheduler*>& List::getChildren(int id) {
 }
 
 void List::displaySchedule() {
-	displayPtr = new ListDisplay;
-	cout<<"====================\n";
-	displayPtr->display(this);
-	cout<<"====================\n";
+    cout<<"1-Full Display\n2-Compact Display\n";
+    int choice;
+    cin>>choice;
+    if(choice == 1){
+        displayPtr = new FullDisplay;
+    }
+    else if (choice == 2){
+        displayPtr = new CompactDisplay;
+    }
+    cout<<"====================\n";
+    displayPtr->display(this);
+    cout<<"====================\n";
 /*
     cout << this->getID();
     // cout << "\nList id(" << this->getID() << ") contains the following\n";

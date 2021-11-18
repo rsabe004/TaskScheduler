@@ -8,6 +8,7 @@ using namespace std;
 
 int main(){
     static int id = 0;
+
     Scheduler* test = new Task(id);
     test->setName("Lab 6");
     test->setDescription("Finish unit tests");
@@ -27,6 +28,7 @@ int main(){
     list->add(test);
     list->add(test2);
     list->displaySchedule();
+
 /*
     Menu menu;
     Scheduler *schedule = new List(id);

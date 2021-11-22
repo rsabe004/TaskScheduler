@@ -14,7 +14,7 @@ void Menu::displayMenu(){
 	cout << "E - Display Schedule\n";
 	cout << "Q - Quit\n";
 	
-	string prompt = "Enter choice: ";
+	string prompt = "\nEnter choice: ";
 	cout << prompt;
 }
 

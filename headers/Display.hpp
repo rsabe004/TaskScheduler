@@ -8,12 +8,22 @@ class Display {
         virtual void display(Scheduler* s) = 0;
 };
 
-class ListDisplay: public Display {
+class FullListDisplay: public Display {
     public:
         void display(Scheduler* s);
 };
 
-class TaskDisplay: public Display {
+class FullTaskDisplay: public Display {
+    public:
+	void display(Scheduler* s);
+};
+
+class CompactListDisplay: public Display {
+    public:
+        void display(Scheduler* s);
+};
+
+class CompactTaskDisplay: public Display {
     public:
 	void display(Scheduler* s);
 };

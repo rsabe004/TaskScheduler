@@ -9,32 +9,57 @@ List::List(int &id) {
 }
 
 Scheduler* List::getList(int listID) {
-    return this->children.at(listID);
+    return this->children.at(listID - 1);
 }
 
 int List::getID() {
     return this->id;
+}
+void List::setName(string n) {
+    this->name = n;
+}
+void List::setDescription(string d) {
+    this->description = d;
+}
+void List::setDueDate(string d) {
+    this->dueDate = d;
+}
+
+string List::getName() {
+    return this->name;
+}
+string List::getDescription() {
+    return this->description;
+}
+string List::getDueDate() {
+    return this->dueDate;
 }
 
 void List::add(Scheduler* obj) {
     this->children.push_back(obj);
 } //adds a task/list
 
-vector<Scheduler*>& List::getChildren(int id) {
-    return children;
-/*
+vector<Scheduler*>& List::getChildren() {
+    return this->children;
+}
+vector<Scheduler*>& List::getChildrenList(int id) {
     if (id == 0) { return this->children; }
     else {
         for (unsigned i = 0; i < this->children.size(); ++i) {
             if (children.at(i)->getID() == id) {
-                return this->children.at(i)->getChildren(0);
+                return this->children.at(i)->getChildrenList(0);
             }
         }
     }
     return this->children;
-*/
 }
-
+void List::displayLists() {
+    for (unsigned i = 0; i < this->children.size(); ++i) {
+        if (this->children.at(i)->is_list()) {
+            cout << "List " << i + 1 << ": " << this->children.at(i)->getName() << endl;
+        }
+    }
+}
 void List::displaySchedule() {
     cout<<"1-Full Display\n2-Compact Display\n";
     int choice;
@@ -48,11 +73,4 @@ void List::displaySchedule() {
     cout<<"====================\n";
     displayPtr->display(this);
     cout<<"====================\n";
-/*
-    cout << this->getID();
-    // cout << "\nList id(" << this->getID() << ") contains the following\n";
-    for (unsigned i = 0; i < this->children.size(); ++i) {
-        children.at(i)->displaySchedule();
-    }
-*/
 }

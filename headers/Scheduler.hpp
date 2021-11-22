@@ -2,7 +2,7 @@
 #define __SCHEDULER_HPP__
 
 #include "Menu.hpp"
-//#include "Remove.hpp"
+// #include "Remove.hpp"
 //#include "Display.hpp"
 
 #include <vector>
@@ -17,16 +17,17 @@ class Display;
 class Scheduler: public Menu {
     protected:
         Display *displayPtr;
-//        Remove *removePtr;
+        // Remove *removePtr;
         int id;
     public:
-        //vector<Scheduler*> children;
+        // vector<Scheduler*> children;
         ~Scheduler();
         Scheduler() {
             displayPtr = nullptr;
 //            removePtr = nullptr;
         }
         virtual void displaySchedule(){}
+        virtual void displayLists(){}
         virtual void add(Scheduler*) {};
         void edit(Scheduler*);
         void remove(int);
@@ -43,13 +44,13 @@ class Scheduler: public Menu {
         virtual double getDuration(){}
         virtual string getDueDate(){}
         virtual string getClassification(){}
-        virtual Scheduler* getList(int){ return 0; }
-	
+        virtual Scheduler* getList(int){}
+        virtual bool is_list(){}
         virtual int getID() {
             return this->id;
         }
-        virtual vector<Scheduler*>& getChildren(int) {}
-	virtual bool is_list(){}
+        virtual vector<Scheduler*>& getChildren() {}
+        virtual vector<Scheduler*>& getChildrenList(int) {}
 };
 
 class Task: public Scheduler {
@@ -81,18 +82,32 @@ class Task: public Scheduler {
 };
 
 class List: public Scheduler {
-    public:
+    protected:
         std::vector<Scheduler*> children;
+        string name;
+        string description;
+        string dueDate;
     public:
         List(int &);
+
+        void setName(string);
+        void setDescription(string);
+        void setDueDate(string);
+        
+        string getName();
+        string getDescription();
+        string getDueDate();
+
         void displaySchedule();
+        void displayLists();
         void add(Scheduler*);
         void edit(Scheduler*);
         void remove(int);
         int getID();
-        vector<Scheduler*>& getChildren(int);
+        vector<Scheduler*>& getChildren();
+        vector<Scheduler*>& getChildrenList(int);
 	    bool is_list(){return true;}
-        virtual Scheduler* getList(int){};
+        Scheduler* getList(int);
 };
 
 #endif //__SCHEDULER_HPP__

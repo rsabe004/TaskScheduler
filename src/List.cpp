@@ -8,6 +8,10 @@ List::List(int &id) {
     id++;
 }
 
+Scheduler* List::getList(int listID) {
+    return this->children.at(listID);
+}
+
 int List::getID() {
     return this->id;
 }

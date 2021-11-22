@@ -30,7 +30,7 @@ class Scheduler: public Menu {
         virtual void add(Scheduler*) {};
         void edit(Scheduler*);
         void remove(int);
-	virtual void setName(string){}
+	    virtual void setName(string){}
         virtual void setDescription(string){}
         virtual void setPriority(int){}
         virtual void setDuration(double){}
@@ -43,6 +43,7 @@ class Scheduler: public Menu {
         virtual double getDuration(){}
         virtual string getDueDate(){}
         virtual string getClassification(){}
+        virtual Scheduler* getList(int){ return 0; }
 	
         virtual int getID() {
             return this->id;
@@ -57,8 +58,8 @@ class Task: public Scheduler {
         string description;
         int priority;
         double duration;
-	string dueDate;
-	string classification;
+	    string dueDate;
+	    string classification;
     public:
         Task(int &);
         void displaySchedule();
@@ -68,15 +69,15 @@ class Task: public Scheduler {
         void setPriority(int);
         void setDuration(double);
         void setDueDate(string);
-	void setClassification(string);
+	    void setClassification(string);
 
         string getName();
         string getDescription();
         int getPriority();
         double getDuration();
         string getDueDate();
-	string getClassification();
-	bool is_list(){return false;}
+	    string getClassification();
+	    bool is_list(){return false;}
 };
 
 class List: public Scheduler {
@@ -90,7 +91,8 @@ class List: public Scheduler {
         void remove(int);
         int getID();
         vector<Scheduler*>& getChildren(int);
-	bool is_list(){return true;}
+	    bool is_list(){return true;}
+        virtual Scheduler* getList(int){};
 };
 
 #endif //__SCHEDULER_HPP__

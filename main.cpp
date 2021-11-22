@@ -1,6 +1,7 @@
 #include "headers/Menu.hpp"
 #include "headers/Scheduler.hpp"
 #include "headers/Remove.hpp"
+#include "headers/Display.hpp"
 
 #include <iostream>
 #include <cctype>
@@ -43,7 +44,22 @@ int main(){
     while ((userInput != 'q') || (userInput != 'Q')) {
         userInput = toupper(userInput);
         if (userInput == 'A'){
-            schedule->add(new List(id));
+            Scheduler *list = new List(id);
+            string tmp = "";
+
+            cout << "Enter the name of the list: ";
+            cin >> tmp;
+            list->setName(tmp);
+
+            cout << "Enter the description of the list: ";
+            cin >> tmp;
+            list->setDescription(tmp);
+
+            cout << "Enter the due date of the List: ";
+            cin >> tmp;
+            list->setDueDate(tmp);
+
+            schedule->add(list);
             menu.displayMenu();
             cin >> userInput;
         }
@@ -51,7 +67,15 @@ int main(){
             cout << "Enter the ID of the list to be deleted: ";
             cin >> listID;
             Remove *remove = new RemoveList;
-            remove->remove(listID, schedule->getChildren(listID));
+            remove->remove(listID, schedule->getChildrenList(listID));
+            
+            vector<Scheduler*> &children = schedule->getChildren();
+            for (auto itr = children.begin(); itr != children.end(); ++itr) {
+                if ((*itr)->getID() == listID) {
+                    children.erase(itr);
+                    break;
+                }
+            }
 
             menu.displayMenu();
             cin >> userInput;
@@ -87,10 +111,13 @@ int main(){
             cin >> tmp;
             task->setClassification(tmp);
 
-            cout << "Which list would you like to add your task under?";
+            cout << "\ncurrent existing lists\n----------------------\n";
+            schedule->displayLists();
+            cout << "\nEnter the list number for the task to be added under: ";
+
             cin >> tmpInt;
 
-            schedule->getList(listID)->add(task);
+            schedule->getList(tmpInt)->add(task);
 
             menu.displayMenu();
             cin >> userInput;
@@ -101,7 +128,7 @@ int main(){
             cout << "Enter the List the ID is under: ";
             cin >> listID;
             Remove *remove = new RemoveTask;
-            remove->remove(taskID, schedule->getChildren(listID));
+            remove->remove(taskID, schedule->getChildrenList(listID));
 
             menu.displayMenu();
             cin >> userInput;

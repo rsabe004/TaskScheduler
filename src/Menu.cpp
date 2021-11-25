@@ -12,6 +12,7 @@ void Menu::displayMenu(){
 	cout << "C - Create Task\n";
 	cout << "D - Remove Task\n";
 	cout << "E - Display Schedule\n";
+	cout << "F - Edit Task\n";
 	cout << "Q - Quit\n";
 	
 	string prompt = "\nEnter choice: ";

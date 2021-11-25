@@ -46,6 +46,7 @@ class Scheduler: public Menu {
         virtual string getClassification(){}
         virtual Scheduler* getList(int){}
         virtual bool is_list(){}
+        virtual bool listExists(Scheduler*){}
         virtual int getID() {
             return this->id;
         }
@@ -107,6 +108,7 @@ class List: public Scheduler {
         vector<Scheduler*>& getChildren();
         vector<Scheduler*>& getChildrenList(int);
 	    bool is_list(){return true;}
+        bool listExists(Scheduler*);
         Scheduler* getList(int);
 };
 

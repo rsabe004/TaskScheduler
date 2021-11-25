@@ -74,3 +74,12 @@ void List::displaySchedule() {
     displayPtr->display(this);
     cout<<"====================\n";
 }
+bool List::listExists(Scheduler *schedule) {
+    vector<Scheduler*> children = schedule->getChildren();
+    for (unsigned i = 0; i < children.size(); ++i) {
+        if (children.at(i)->is_list()) {
+            return true;
+        }
+    }
+    return false;
+}

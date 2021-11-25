@@ -114,7 +114,6 @@ int main(){
 
             //when there is no existing list
             if (!(schedule->listExists(schedule))) {
-                cout << "entered";
                 schedule->add(task);
             }
             else {
@@ -146,15 +145,9 @@ int main(){
             cin >> userInput;
         }
         else if (userInput == 'F') {
-            cout << "Enter the ID of the task to be edited: ";
-            cin >> taskID;
-
-
-
-            cout << "Enter the attribute you want to edit";
-            cin >> input;
-
-
+            schedule->editExistingTask(schedule);
+            menu.displayMenu();
+            cin >> userInput;
         }
         else {
             break;

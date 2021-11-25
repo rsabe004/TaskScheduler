@@ -6,7 +6,7 @@ using namespace std;
 
 void Menu::displayMenu(){
 
-	cout << "\nPlease choose from the following tasks:\n";
+	cout << "\n\nPlease choose from the following tasks:\n";
 	cout << "A - Create List\n";
 	cout << "B - Remove List\n";
 	cout << "C - Create Task\n";

@@ -36,6 +36,7 @@ int main(){
 
     int listID = 0;
     int taskID = 0;
+    int input = 0;
     char userInput;
 
     menu.displayMenu();
@@ -111,21 +112,26 @@ int main(){
             cin >> tmp;
             task->setClassification(tmp);
 
-            cout << "\ncurrent existing lists\n----------------------\n";
-            schedule->displayLists();
-            cout << "\nEnter the list number for the task to be added under: ";
+            //when there is no existing list
+            if (!(schedule->listExists(schedule))) {
+                schedule->add(task);
+            }
+            else {
+                cout << "\ncurrent existing lists\n----------------------\n";
+                schedule->displayLists();
+                cout << "\nEnter the list number for the task to be added under: ";
 
-            cin >> tmpInt;
+                cin >> tmpInt;
 
-            schedule->getList(tmpInt)->add(task);
-
+                schedule->getList(tmpInt)->add(task);
+            }
             menu.displayMenu();
             cin >> userInput;
         }
         else if (userInput == 'D'){
             cout << "Enter the ID of the task to be deleted: ";
             cin >> taskID;
-            cout << "Enter the List the ID is under: ";
+            cout << "Enter the List the ID is under (0 if it isn't under any list): ";
             cin >> listID;
             Remove *remove = new RemoveTask;
             remove->remove(taskID, schedule->getChildrenList(listID));
@@ -138,11 +144,16 @@ int main(){
             menu.displayMenu();
             cin >> userInput;
         }
+        else if (userInput == 'F') {
+            schedule->editExistingTask(schedule);
+            menu.displayMenu();
+            cin >> userInput;
+        }
         else {
             break;
         }
     }
-    cout << "\nThanks for using our task scheduler!";
+    cout << "\nThanks for using our task scheduler!\n";
 
     return 0;
 }	

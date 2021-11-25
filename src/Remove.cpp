@@ -10,8 +10,6 @@ void RemoveList::remove(int id, vector<Scheduler*> &children) {
 }
 
 void RemoveTask::remove(int id, vector<Scheduler*> &children) {
-    cout << "\nsize of children: " << children.size() << endl;
-    cout << "\nprinting children: " << endl;
     for (auto itr = children.begin(); itr != children.end(); ++itr) {
          cout << (*itr)->getID() << endl;
     }

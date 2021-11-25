@@ -56,7 +56,7 @@ vector<Scheduler*>& List::getChildrenList(int id) {
 void List::displayLists() {
     for (unsigned i = 0; i < this->children.size(); ++i) {
         if (this->children.at(i)->is_list()) {
-            cout << "List " << i + 1 << ": " << this->children.at(i)->getName() << endl;
+            cout << "List ID " << i + 1 << ": " << this->children.at(i)->getName() << endl;
         }
     }
 }
@@ -70,7 +70,74 @@ void List::displaySchedule() {
     else if (choice == 2){
         displayPtr = new CompactDisplay;
     }
-    cout<<"====================\n";
+    cout<<"\n====================\n";
     displayPtr->display(this);
-    cout<<"====================\n";
+    cout<<"\n====================\n";
+}
+bool List::listExists(Scheduler *schedule) {
+    vector<Scheduler*> children = schedule->getChildren();
+    for (unsigned i = 0; i < children.size(); ++i) {
+        if (children.at(i)->is_list()) {
+            return true;
+        }
+    }
+    return false;
+}
+void List::editExistingTask(Scheduler* s) {
+    int taskID = 0, input = 0, listID = 0;
+    string strInput = "";
+    int intInput = 0;
+    double dbInput = 0.0;
+
+    cout << "Enter the ID of the task to be edited: ";
+    cin >> taskID;
+
+    cout << "Enter the List the ID is under (0 if it isn't under any list): ";
+    cin >> listID;
+
+    cout << "\n1. name\n";
+    cout << "2. description\n";
+    cout << "3. priority\n";
+    cout << "4. duration\n";
+    cout << "5. due date\n";
+    cout << "\nEnter the attribute you want to edit: ";
+    cin >> input;
+
+    if (input == 1 || input == 2 || input == 5) {
+        cout << "Enter the new value: ";
+        cin >> strInput;
+    }
+    else if (input == 3) {
+        cout << "Enter the new value: ";
+        cin >> intInput;
+    }
+    else {
+        cout << "Enter the new value: ";
+        cin >> dbInput;
+    }
+
+    vector<Scheduler*> children = s->getChildrenList(listID);
+    for (auto itr = children.begin(); itr != children.end(); ++itr) {
+        if ((*itr)->getID() == taskID) {
+            switch(input) {
+                case 1:
+                    (*itr)->setName(strInput);
+                    break;
+                case 2:
+                    (*itr)->setDescription(strInput);
+                    break;
+                case 3:
+                    (*itr)->setPriority(intInput);
+                    break;
+                case 4:
+                    (*itr)->setDuration(dbInput);
+                    break;
+                case 5:
+                    (*itr)->setDueDate(strInput);
+                    break;
+            }
+            cout << "Updated!\n";
+            return;
+        }
+    }
 }

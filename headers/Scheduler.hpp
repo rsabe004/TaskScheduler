@@ -48,6 +48,7 @@ class Scheduler: public Menu {
         virtual bool is_list(){}
         virtual bool listExists(Scheduler*){}
         virtual void editExistingTask(Scheduler*){}
+        virtual void editExistingList(Scheduler*){}
         virtual int getID() {
             return this->id;
         }
@@ -112,6 +113,7 @@ class List: public Scheduler {
         bool listExists(Scheduler*);
         Scheduler* getList(int);
         void editExistingTask(Scheduler*);
+        void editExistingList(Scheduler*);
 };
 
 #endif //__SCHEDULER_HPP__

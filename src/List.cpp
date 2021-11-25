@@ -136,8 +136,42 @@ void List::editExistingTask(Scheduler* s) {
                     (*itr)->setDueDate(strInput);
                     break;
             }
-            cout << "Updated!\n";
+            cout << "Updated task!\n";
             return;
+        }
+    }
+}
+void List::editExistingList(Scheduler* s) {
+    int listID = 0;
+    int intInput = 0;
+    string strInput = "";
+
+    cout << "Enter the ID of the list to be edited: ";
+    cin >> listID;
+
+    cout << "\n1. name\n";
+    cout << "2. description\n";
+    cout << "3. due date\n";
+    cout << "\nEnter the attribute you want to edit: ";
+    cin >> intInput;
+
+    cout << "Enter the new value: ";
+    cin >> strInput;
+
+    for (auto itr = s->getChildren().begin(); itr != s->getChildren().end(); ++itr) {
+        if ((*itr)->getID() == listID) {
+            switch(intInput) {
+                case 1:
+                    (*itr)->setName(strInput);
+                    break;
+                case 2:
+                    (*itr)->setDescription(strInput);
+                    break;
+                case 3:
+                    (*itr)->setDueDate(strInput);
+                    break;
+            }
+            cout << "Updated list!\n";
         }
     }
 }

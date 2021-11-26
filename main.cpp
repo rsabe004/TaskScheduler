@@ -149,6 +149,11 @@ int main(){
             menu.displayMenu();
             cin >> userInput;
         }
+        else if (userInput == 'G') {
+            schedule->editExistingList(schedule);
+            menu.displayMenu();
+            cin >> userInput;
+        }
         else {
             break;
         }

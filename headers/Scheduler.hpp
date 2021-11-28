@@ -17,7 +17,6 @@ class Scheduler: public Menu {
         Display *displayPtr;
         int id;
     public:
-        // vector<Scheduler*> children;
         ~Scheduler();
         Scheduler() {
             displayPtr = nullptr;
@@ -49,16 +48,15 @@ class Scheduler: public Menu {
         virtual vector<Scheduler*>& getChildrenList(int) {}
         virtual void removeTask(int, vector<Scheduler*>&) {}
         virtual void removeList(int, vector<Scheduler*>&) {}
-	bool check_num(string str) {
-        for (int i = 0; i < str.length(); i++) {
+	    bool check_num(string str) {
+            for (int i = 0; i < str.length(); i++) {
                 if(isdigit(str[i]) == false) {
-                        cout << "Please input a number." << endl;
-                        return false;
-                        }
+                    cout << "Please input a number." << endl;
+                    return false;
+                    }
                 }
                 return true;
-	}
-
+	    }
 };
 
 class Task: public Scheduler {

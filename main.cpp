@@ -136,7 +136,9 @@ int main(){
 			cin >> tmpIntStr;
 		   }
 		int tmpInt = stoi(tmpIntStr);
-                schedule->getList(tmpInt)->add(task);
+                if(schedule->getList(tmpInt) != nullptr) {
+			schedule->getList(tmpInt)->add(task);
+		}
             }
             menu.displayMenu();
             cin >> userInput;

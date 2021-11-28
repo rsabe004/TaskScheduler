@@ -9,7 +9,11 @@ List::List(int &id) {
 }
 
 Scheduler* List::getList(int listID) {
+    if((listID-1) < this->children.size()) {
     return this->children.at(listID - 1);
+    }
+    cout << "List does not exist." << endl;
+    return nullptr;
 }
 
 int List::getID() {

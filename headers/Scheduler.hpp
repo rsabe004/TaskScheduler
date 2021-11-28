@@ -2,8 +2,6 @@
 #define __SCHEDULER_HPP__
 
 #include "Menu.hpp"
-// #include "Remove.hpp"
-//#include "Display.hpp"
 #include<iostream>
 #include <vector>
 #include <string>
@@ -17,20 +15,16 @@ class Display;
 class Scheduler: public Menu {
     protected:
         Display *displayPtr;
-        // Remove *removePtr;
         int id;
     public:
-        // vector<Scheduler*> children;
         ~Scheduler();
         Scheduler() {
             displayPtr = nullptr;
-//            removePtr = nullptr;
         }
         virtual void displaySchedule(){}
         virtual void displayLists(){}
         virtual void add(Scheduler*) {};
         void edit(Scheduler*);
-        void remove(int);
 	    virtual void setName(string){}
         virtual void setDescription(string){}
         virtual void setPriority(int){}
@@ -52,16 +46,17 @@ class Scheduler: public Menu {
         }
         virtual vector<Scheduler*>& getChildren() {}
         virtual vector<Scheduler*>& getChildrenList(int) {}
-	bool check_num(string str) {
-        for (int i = 0; i < str.length(); i++) {
+        virtual void removeTask(int, vector<Scheduler*>&) {}
+        virtual void removeList(int, vector<Scheduler*>&) {}
+	    bool check_num(string str) {
+            for (int i = 0; i < str.length(); i++) {
                 if(isdigit(str[i]) == false) {
-                        cout << "Please input a number." << endl;
-                        return false;
-                        }
+                    cout << "Please input a number." << endl;
+                    return false;
+                    }
                 }
                 return true;
-	}
-
+	    }
 };
 
 class Task: public Scheduler {
@@ -113,7 +108,6 @@ class List: public Scheduler {
         void displayLists();
         void add(Scheduler*);
         void edit(Scheduler*);
-        void remove(int);
         int getID();
         vector<Scheduler*>& getChildren();
         vector<Scheduler*>& getChildrenList(int);
@@ -122,6 +116,8 @@ class List: public Scheduler {
         Scheduler* getList(int);
         void editExistingTask(Scheduler*);
         void editExistingList(Scheduler*);
+        void removeList(int id, vector<Scheduler*>& children);
+        void removeTask(int id, vector<Scheduler*>& children);
 };
 
 #endif //__SCHEDULER_HPP__

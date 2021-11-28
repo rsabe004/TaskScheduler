@@ -1,6 +1,5 @@
 #include "headers/Menu.hpp"
 #include "headers/Scheduler.hpp"
-#include "headers/Remove.hpp"
 #include "headers/Display.hpp"
 
 #include <iostream>
@@ -9,27 +8,6 @@ using namespace std;
 
 int main(){
     static int id = 0;
-
-    // Scheduler* test = new Task(id);
-    // test->setName("Lab 6");
-    // test->setDescription("Finish unit tests");
-    // test->setPriority(2);
-    // test->setDuration(4);
-    // test->setDueDate("Nov 20");
-    // test->displaySchedule();
-
-    // Scheduler* test2 = new Task(id);
-    // test2->setName("Final");
-    // test2->setDescription("Study Final");
-    // test2->setPriority(3);
-    // test2->setDuration(4);
-    // test2->setDueDate("Dec 20");
-    
-    // Scheduler* list = new List(id);
-    // list->add(test);
-    // list->add(test2);
-    // list->displaySchedule();
-
 
     Menu menu;
     Scheduler *schedule = new List(id);
@@ -66,14 +44,15 @@ int main(){
         }
         else if (userInput == 'B'){
             cout << "Enter the ID of the list to be deleted: ";
-	    string idStr  = "";
+	        string idStr  = "";
             cin >> idStr;
+
 	    	while(!schedule->check_num(idStr)) {
-			cin >> idStr;
-		}
-	    int listID = stoi(idStr);
-            Remove *remove = new RemoveList;
-            remove->remove(listID, schedule->getChildrenList(listID));
+			    cin >> idStr;
+		    }
+
+	        int listID = stoi(idStr);
+            schedule->removeList(listID, schedule->getChildrenList(listID));
             
             vector<Scheduler*> &children = schedule->getChildren();
             for (auto itr = children.begin(); itr != children.end(); ++itr) {
@@ -82,7 +61,6 @@ int main(){
                     break;
                 }
             }
-	    delete remove;
             menu.displayMenu();
             cin >> userInput;
         }
@@ -103,18 +81,22 @@ int main(){
 
             cout << "Enter the priority of the task: ";
             cin >> tmpIntStr;
-		while(!schedule->check_num(tmpIntStr)) {
-			cin >> tmpIntStr;
-		}
-	    int tmpInt = stoi(tmpIntStr);
+
+            while(!schedule->check_num(tmpIntStr)) {
+                cin >> tmpIntStr;
+            }
+
+	        int tmpInt = stoi(tmpIntStr);
             task->setPriority(tmpInt);
 
             cout << "Enter the duration of the task: ";
             cin >> durationStr;
-		while(!schedule->check_num(durationStr)) {
-			cin >> durationStr;
-		}
-	    double duration = stod(durationStr);
+
+		    while(!schedule->check_num(durationStr)) {
+			    cin >> durationStr;
+		    }
+            
+	        double duration = stod(durationStr);
             task->setDuration(duration);
 
             cout << "Enter the due date of the task: ";
@@ -130,35 +112,41 @@ int main(){
                 schedule->displayLists();
                 cout << "\nEnter the list number for the task to be added under: ";
 
-		cin >> tmpIntStr;
-		   while(!schedule->check_num(tmpIntStr)) {
-			cin >> tmpIntStr;
-		   }
-		int tmpInt = stoi(tmpIntStr);
+                cin >> tmpIntStr;
+
+                while(!schedule->check_num(tmpIntStr)) {
+                    cin >> tmpIntStr;
+                }
+
+                int tmpInt = stoi(tmpIntStr);
+
                 if(schedule->getList(tmpInt) != nullptr) {
-			schedule->getList(tmpInt)->add(task);
-		}
+                    schedule->getList(tmpInt)->add(task);
+                }
             }
             menu.displayMenu();
             cin >> userInput;
         }
         else if (userInput == 'D'){
-	    string idStr = "";
+	        string idStr = "";
             cout << "Enter the ID of the task to be deleted: ";
             cin >> idStr;
-		while(!schedule->check_num(idStr)) {
-			cin >> idStr;
-		}
-	    int taskID = stoi(idStr);
+
+            while(!schedule->check_num(idStr)) {
+                cin >> idStr;
+            }
+
+            int taskID = stoi(idStr);
+
             cout << "Enter the List the ID is under (0 if it isn't under any list): ";
             cin >> idStr;
-		while(!schedule->check_num(idStr)) {
-			cin >> idStr;
-		}
-	    int listID = stoi(idStr);
-            Remove *remove = new RemoveTask;
-            remove->remove(taskID, schedule->getChildrenList(listID));
-	    delete remove;
+
+            while(!schedule->check_num(idStr)) {
+                cin >> idStr;
+            }
+
+            int listID = stoi(idStr);
+            schedule->removeTask(taskID, schedule->getChildrenList(listID));
             menu.displayMenu();
             cin >> userInput;
         }

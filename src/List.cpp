@@ -99,18 +99,18 @@ void List::editExistingTask(Scheduler* s) {
     double dbInput = 0.0;
 
     cout << "Enter the ID of the task to be edited: ";
-     cin >> strInput;
-                while(!this->check_num(strInput)) {
-                        cin >> strInput;
-                }
-        taskID = stoi(strInput);
+    cin >> strInput;
+    while(!this->check_num(strInput)) {
+            cin >> strInput;
+    }
+    taskID = stoi(strInput);
 
     cout << "Enter the List the ID is under (0 if it isn't under any list): ";
-     cin >> strInput;
-                while(!this->check_num(strInput)) {
-                        cin >> strInput;
-                }
-        listID = stoi(strInput);
+    cin >> strInput;
+    while(!this->check_num(strInput)) {
+            cin >> strInput;
+    }
+    listID = stoi(strInput);
 
     cout << "\n1. name\n";
     cout << "2. description\n";
@@ -118,11 +118,11 @@ void List::editExistingTask(Scheduler* s) {
     cout << "4. duration\n";
     cout << "5. due date\n";
     cout << "\nEnter the attribute you want to edit: ";
-     cin >> strInput;
-                while(!this->check_num(strInput)) {
-                        cin >> strInput;
-                }
-        input = stoi(strInput);
+    cin >> strInput;
+    while(!this->check_num(strInput)) {
+            cin >> strInput;
+    }
+    input = stoi(strInput);
 
     if (input == 1 || input == 2 || input == 5) {
         cout << "Enter the new value: ";
@@ -134,16 +134,15 @@ void List::editExistingTask(Scheduler* s) {
 		while(!this->check_num(strInput)) {
 			cin >> strInput;
 		}
-	intInput = stoi(strInput);
+	    intInput = stoi(strInput);
     }
     else {
         cout << "Enter the new value: ";
-	 cin >> strInput;
-                while(!this->check_num(strInput)) {
-                        cin >> strInput;
-                }
+	    cin >> strInput;
+        while(!this->check_num(strInput)) {
+                cin >> strInput;
+        }
         dbInput = stod(strInput);
-
     }
 
     vector<Scheduler*> children = s->getChildrenList(listID);
@@ -177,21 +176,21 @@ void List::editExistingList(Scheduler* s) {
     string strInput = "";
 
     cout << "Enter the ID of the list to be edited: ";
-     cin >> strInput;
-                while(!this->check_num(strInput)) {
-                        cin >> strInput;
-                }
-        listID = stoi(strInput);
+    cin >> strInput;
+    while(!this->check_num(strInput)) {
+            cin >> strInput;
+    }
+    listID = stoi(strInput);
 
     cout << "\n1. name\n";
     cout << "2. description\n";
     cout << "3. due date\n";
     cout << "\nEnter the attribute you want to edit: ";
-      cin >> strInput;
-                while(!this->check_num(strInput)) {
-                        cin >> strInput;
-                }
-        intInput = stoi(strInput);
+    cin >> strInput;
+    while(!this->check_num(strInput)) {
+            cin >> strInput;
+    }
+    intInput = stoi(strInput);
 
     cout << "Enter the new value: ";
     getline(cin>>ws, strInput);

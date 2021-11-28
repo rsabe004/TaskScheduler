@@ -36,14 +36,12 @@ class Scheduler: public Menu {
         virtual void setPriority(int){}
         virtual void setDuration(double){}
         virtual void setDueDate(string){}
-        virtual void setClassification(string){}
-
+        
         virtual string getName(){}
         virtual string getDescription(){}
         virtual int getPriority(){}
         virtual double getDuration(){}
         virtual string getDueDate(){}
-        virtual string getClassification(){}
         virtual Scheduler* getList(int){}
         virtual bool is_list(){}
         virtual bool listExists(Scheduler*){}

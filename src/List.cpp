@@ -8,6 +8,23 @@ List::List(int &id) {
     id++;
 }
 
+List::~List(){
+    delete displayPtr;
+    for (unsigned i = 0; i < this->children.size(); ++i){
+        if(children[i]->is_list()){
+            vector<Scheduler*> c = children[i]->getChildren();
+            
+	    for (int j = 0; j<c.size(); ++j){
+                delete c[j];
+            }
+        }
+	else{
+            delete children[i];
+	}
+    }
+
+}
+
 Scheduler* List::getList(int listID) {
     return this->children.at(listID - 1);
 }
@@ -54,7 +71,7 @@ vector<Scheduler*>& List::getChildrenList(int id) {
     return this->children;
 }
 void List::displayLists() {
-    for (unsigned i = 0; i < this->children.size(); ++i) {
+    for (unsigned int i = 0; i < this->children.size(); ++i) {
         if (this->children.at(i)->is_list()) {
             cout << "List ID " << i + 1 << ": " << this->children.at(i)->getName() << endl;
         }
@@ -76,7 +93,7 @@ void List::displaySchedule() {
 }
 bool List::listExists(Scheduler *schedule) {
     vector<Scheduler*> children = schedule->getChildren();
-    for (unsigned i = 0; i < children.size(); ++i) {
+    for (unsigned int i = 0; i < children.size(); ++i) {
         if (children.at(i)->is_list()) {
             return true;
         }

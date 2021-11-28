@@ -20,7 +20,7 @@ class Scheduler: public Menu {
         // Remove *removePtr;
         int id;
     public:
-        // vector<Scheduler*> children;
+        vector<Scheduler*> children;
         ~Scheduler();
         Scheduler() {
             displayPtr = nullptr;
@@ -90,7 +90,7 @@ class List: public Scheduler {
         string dueDate;
     public:
         List(int &);
-
+	~List();
         void setName(string);
         void setDescription(string);
         void setDueDate(string);

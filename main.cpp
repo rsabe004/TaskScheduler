@@ -93,7 +93,7 @@ int main(){
             task->setName(tmp);
 
             cout << "Enter the description of the task: ";
-            getline(cin>>ws, tmp);
+            getline(cin>> ws, tmp);
             task->setDescription(tmp);
 
             cout << "Enter the priority of the task: ";

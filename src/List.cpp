@@ -156,7 +156,7 @@ void List::editExistingList(Scheduler* s) {
     cin >> intInput;
 
     cout << "Enter the new value: ";
-    cin >> strInput;
+    getline(cin>>ws, strInput);
 
     for (auto itr = s->getChildren().begin(); itr != s->getChildren().end(); ++itr) {
         if ((*itr)->getID() == listID) {

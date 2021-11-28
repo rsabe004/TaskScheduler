@@ -49,15 +49,15 @@ int main(){
             string tmp = "";
 
             cout << "Enter the name of the list: ";
-            cin >> tmp;
+            getline(cin>>ws, tmp);
             list->setName(tmp);
 
             cout << "Enter the description of the list: ";
-            cin >> tmp;
+            getline(cin>>ws, tmp);
             list->setDescription(tmp);
 
             cout << "Enter the due date of the List: ";
-            cin >> tmp;
+            getline(cin>>ws, tmp);
             list->setDueDate(tmp);
 
             schedule->add(list);
@@ -89,11 +89,11 @@ int main(){
             Scheduler *task = new Task(id);
 
             cout << "Enter the name of the task: ";
-            cin >> tmp;
+            getline(cin>>ws, tmp);
             task->setName(tmp);
 
             cout << "Enter the description of the task: ";
-            cin >> tmp;
+            getline(cin>>ws, tmp);
             task->setDescription(tmp);
 
             cout << "Enter the priority of the task: ";
@@ -105,7 +105,7 @@ int main(){
             task->setDuration(duration);
 
             cout << "Enter the due date of the task: ";
-            cin >> tmp;
+            getline(cin>>ws, tmp);
             task->setDueDate(tmp);
 
             //when there is no existing list

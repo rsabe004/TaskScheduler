@@ -213,3 +213,20 @@ void List::editExistingList(Scheduler* s) {
         }
     }
 }
+void List::removeList(int id, vector<Scheduler*>& children) {
+    cout << "hello from lsit";
+    children.clear();
+    cout << "\nremoved list " << id << endl;
+}
+void List::removeTask(int id, vector<Scheduler*>& children) {
+    for (auto itr = children.begin(); itr != children.end(); ++itr) {
+         cout << (*itr)->getID() << endl;
+    }
+    for (auto itr = children.begin(); itr != children.end(); ++itr) {
+        if ((*itr)->getID() == id) {
+            cout << "\nerased " << (*itr)->getID() << endl;
+            children.erase(itr);
+            return;
+        }
+    }
+}

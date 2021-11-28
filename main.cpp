@@ -1,6 +1,5 @@
 #include "headers/Menu.hpp"
 #include "headers/Scheduler.hpp"
-#include "headers/Remove.hpp"
 #include "headers/Display.hpp"
 
 #include <iostream>
@@ -51,8 +50,7 @@ int main(){
 			cin >> idStr;
 		}
 	    int listID = stoi(idStr);
-            Remove *remove = new RemoveList;
-            remove->remove(listID, schedule->getChildrenList(listID));
+            schedule->removeList(listID, schedule->getChildrenList(listID));
             
             vector<Scheduler*> &children = schedule->getChildren();
             for (auto itr = children.begin(); itr != children.end(); ++itr) {
@@ -61,7 +59,6 @@ int main(){
                     break;
                 }
             }
-	    delete remove;
             menu.displayMenu();
             cin >> userInput;
         }
@@ -135,9 +132,7 @@ int main(){
 			cin >> idStr;
 		}
 	    int listID = stoi(idStr);
-            Remove *remove = new RemoveTask;
-            remove->remove(taskID, schedule->getChildrenList(listID));
-	    delete remove;
+            schedule->removeTask(taskID, schedule->getChildrenList(listID));
             menu.displayMenu();
             cin >> userInput;
         }

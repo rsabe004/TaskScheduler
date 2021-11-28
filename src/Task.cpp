@@ -70,4 +70,3 @@ void Task::displaySchedule(){
     
     displayPtr->display(this);
 }
-

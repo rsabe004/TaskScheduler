@@ -108,10 +108,6 @@ int main(){
             cin >> tmp;
             task->setDueDate(tmp);
 
-            cout << "Enter the classification of the task: ";
-            cin >> tmp;
-            task->setClassification(tmp);
-
             //when there is no existing list
             if (!(schedule->listExists(schedule))) {
                 schedule->add(task);

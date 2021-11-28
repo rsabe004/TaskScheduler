@@ -4,7 +4,7 @@
 #include "Menu.hpp"
 // #include "Remove.hpp"
 //#include "Display.hpp"
-
+#include<iostream>
 #include <vector>
 #include <string>
 #include <iosfwd>
@@ -52,6 +52,16 @@ class Scheduler: public Menu {
         }
         virtual vector<Scheduler*>& getChildren() {}
         virtual vector<Scheduler*>& getChildrenList(int) {}
+	bool check_num(string str) {
+        for (int i = 0; i < str.length(); i++) {
+                if(isdigit(str[i]) == false) {
+                        cout << "Please input a number." << endl;
+                        return false;
+                        }
+                }
+                return true;
+	}
+
 };
 
 class Task: public Scheduler {

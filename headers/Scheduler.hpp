@@ -104,7 +104,6 @@ class List: public Scheduler {
         void displaySchedule();
         void displayLists();
         void add(Scheduler*);
-        void edit(Scheduler*);
         int getID();
         vector<Scheduler*>& getChildren();
         vector<Scheduler*>& getChildrenList(int);

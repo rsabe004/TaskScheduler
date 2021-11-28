@@ -10,27 +10,6 @@ using namespace std;
 int main(){
     static int id = 0;
 
-    // Scheduler* test = new Task(id);
-    // test->setName("Lab 6");
-    // test->setDescription("Finish unit tests");
-    // test->setPriority(2);
-    // test->setDuration(4);
-    // test->setDueDate("Nov 20");
-    // test->displaySchedule();
-
-    // Scheduler* test2 = new Task(id);
-    // test2->setName("Final");
-    // test2->setDescription("Study Final");
-    // test2->setPriority(3);
-    // test2->setDuration(4);
-    // test2->setDueDate("Dec 20");
-    
-    // Scheduler* list = new List(id);
-    // list->add(test);
-    // list->add(test2);
-    // list->displaySchedule();
-
-
     Menu menu;
     Scheduler *schedule = new List(id);
 

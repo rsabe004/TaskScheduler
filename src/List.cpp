@@ -105,7 +105,7 @@ void List::editExistingTask(Scheduler* s) {
 
     if (input == 1 || input == 2 || input == 5) {
         cout << "Enter the new value: ";
-        cin >> strInput;
+        getline(cin>>ws, strInput);
     }
     else if (input == 3) {
         cout << "Enter the new value: ";

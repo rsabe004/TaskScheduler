@@ -49,11 +49,12 @@ int main(){
             string tmp = "";
 
             cout << "Enter the name of the list: ";
-            cin >> tmp;
+	    cin.ignore();
+            getline(cin, tmp);
             list->setName(tmp);
 
             cout << "Enter the description of the list: ";
-            cin >> tmp;
+            getline(cin, tmp);
             list->setDescription(tmp);
 
             cout << "Enter the due date of the List: ";
@@ -77,7 +78,7 @@ int main(){
                     break;
                 }
             }
-
+	    delete remove;
             menu.displayMenu();
             cin >> userInput;
         }
@@ -89,11 +90,12 @@ int main(){
             Scheduler *task = new Task(id);
 
             cout << "Enter the name of the task: ";
-            cin >> tmp;
+	    cin.ignore();
+            getline(cin, tmp);
             task->setName(tmp);
 
             cout << "Enter the description of the task: ";
-            cin >> tmp;
+            getline(cin, tmp);
             task->setDescription(tmp);
 
             cout << "Enter the priority of the task: ";
@@ -131,7 +133,7 @@ int main(){
             cin >> listID;
             Remove *remove = new RemoveTask;
             remove->remove(taskID, schedule->getChildrenList(listID));
-
+	    delete remove;
             menu.displayMenu();
             cin >> userInput;
         }
@@ -155,6 +157,6 @@ int main(){
         }
     }
     cout << "\nThanks for using our task scheduler!\n";
-
+    delete schedule;
     return 0;
 }	

@@ -63,7 +63,12 @@ void List::displayLists() {
 void List::displaySchedule() {
     cout<<"1-Full Display\n2-Compact Display\n";
     int choice;
-    cin>>choice;
+    string choiceStr;
+    cin>>choiceStr;
+	while(!this->check_num(choiceStr)) {
+		cin >> choiceStr;
+	}
+    choice = stoi(choiceStr);
     if(choice == 1){
         displayPtr = new FullDisplay;
     }

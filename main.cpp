@@ -7,17 +7,6 @@
 #include <cctype>
 using namespace std;
 
-bool check_num(string str) {
-        for (int i = 0; i < str.length(); i++) {
-                if(isdigit(str[i]) == false) {
-			cout << "Please input a number." << endl;
-			return false;
-			}
-                }
-                return true;
-}
-
-
 int main(){
     static int id = 0;
 
@@ -79,7 +68,7 @@ int main(){
             cout << "Enter the ID of the list to be deleted: ";
 	    string idStr  = "";
             cin >> idStr;
-	    	while(!check_num(idStr)) {
+	    	while(!schedule->check_num(idStr)) {
 			cin >> idStr;
 		}
 	    int listID = stoi(idStr);
@@ -115,7 +104,7 @@ int main(){
 
             cout << "Enter the priority of the task: ";
             cin >> tmpIntStr;
-		while(!check_num(tmpIntStr)) {
+		while(!schedule->check_num(tmpIntStr)) {
 			cin >> tmpIntStr;
 		}
 	    int tmpInt = stoi(tmpIntStr);
@@ -123,7 +112,7 @@ int main(){
 
             cout << "Enter the duration of the task: ";
             cin >> durationStr;
-		while(!check_num(durationStr)) {
+		while(!schedule->check_num(durationStr)) {
 			cin >> durationStr;
 		}
 	    double duration = stod(durationStr);
@@ -143,7 +132,7 @@ int main(){
                 cout << "\nEnter the list number for the task to be added under: ";
 
 		cin >> tmpIntStr;
-		   while(!check_num(tmpIntStr)) {
+		   while(!schedule->check_num(tmpIntStr)) {
 			cin >> tmpIntStr;
 		   }
 		int tmpInt = stoi(tmpIntStr);
@@ -156,13 +145,13 @@ int main(){
 	    string idStr = "";
             cout << "Enter the ID of the task to be deleted: ";
             cin >> idStr;
-		while(!check_num(idStr)) {
+		while(!schedule->check_num(idStr)) {
 			cin >> idStr;
 		}
 	    int taskID = stoi(idStr);
             cout << "Enter the List the ID is under (0 if it isn't under any list): ";
             cin >> idStr;
-		while(!check_num(idStr)) {
+		while(!schedule->check_num(idStr)) {
 			cin >> idStr;
 		}
 	    int listID = stoi(idStr);

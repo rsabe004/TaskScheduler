@@ -29,10 +29,7 @@ As college students, having a task scheduler would be very useful for time manag
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >      * [C++](https://www.cplusplus.com/) - programming language created by Bjarne Stroustrup.
  >      * [Valgrind](https://valgrind.org/) - programming tool for memory leak detection.
- >      * [Gitk](https://www.atlassian.com/git/tutorials/gitk) - graphical repository browser.
  >      * [CMake](https://cmake.org/) - software for build automation, testing, packaging and installation.
- >      * [Meld](https://meldmerge.org/) - visual diff and merge tool to help compare files, directories, and version controlled projects.
-
 
  > * What will be the input/output of your project? What are the features that the project provides?
  >      * Inputs
@@ -63,7 +60,7 @@ As college students, having a task scheduler would be very useful for time manag
 ## Class Diagram
  > Include a class diagram(s) for your project and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
   
-  ![alt text](Task_Scheduler_UML.png)
+  ![alt text](umlDiagram.png)
  > We decided to use the composite and strategy pattern to develop our task scheduler. Our task schedule consists of tasks and lists. We used composite pattern to have both tasks and lists use the same interface, Scheduler. List served as the composite and task served as the leaf class. This way, the lists could have other lists and tasks as its children. Using the composite pattern made the client interaction much simpler and adding additional components is very straightforward. In our Scheduler interface, we also made sure to include Display and Remove pointers which brings us to the strategy pattern we used. We implemented two strategy patterns for two different purposes. First, we used the strategy pattern in order to implement different ways of removing a task and a list. We realized we would have to use different algorithms to remove a task compared to deleting a list, which is why we decided to use the strategy pattern. The pointer in our Scheduler class will decide for us which algorithm to use based on whether the object is a task or a list. We used the same concept for display. We had to display a task and a list differently, which is precisely why we made use of the strategy pattern to implement the display feature as well. Using the strategy pattern allowed us to have families of related algorithms and to vary the algorithm independelntly from the context. Without the strategy pattern, we would've had to use numerous conditional statements and would break the SOLID principle with the addition of a new algorithm.
 
   ## Phase III

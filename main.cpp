@@ -82,14 +82,13 @@ int main(){
                     break;
                 }
             }
-
+	    delete remove;
             menu.displayMenu();
             cin >> userInput;
         }
         else if (userInput == 'C'){
             //implement which list to add task under
             string tmp = "";
-            //int tmpInt = 0;
             string tmpIntStr = "";
             string durationStr = "";
             Scheduler *task = new Task(id);
@@ -159,7 +158,7 @@ int main(){
 	    int listID = stoi(idStr);
             Remove *remove = new RemoveTask;
             remove->remove(taskID, schedule->getChildrenList(listID));
-
+	    delete remove;
             menu.displayMenu();
             cin >> userInput;
         }
@@ -183,6 +182,6 @@ int main(){
         }
     }
     cout << "\nThanks for using our task scheduler!\n";
-
+    delete schedule;
     return 0;
 }	

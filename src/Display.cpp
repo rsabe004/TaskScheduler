@@ -13,7 +13,7 @@ void FullTaskDisplay::display(Scheduler* task){
 }
 
 void CompactTaskDisplay::display(Scheduler* task){
-    cout<<"\n\tTask Name: "<<task->getPriority()<<endl
+    cout<<"\n\tTask Name: "<<task->getName()<<endl
 	<<"\tDuration: "<<task->getDuration()<<" | "<<"Due Date: "<<task->getDueDate()<<endl;
 }
 

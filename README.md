@@ -89,7 +89,12 @@ As college students, having a task scheduler would be very useful for time manag
  
  ## Screenshots
  > Screenshots of the input/output after running your application
+ ![createAndDisplay](./imgs/createAndDisplay.png)
+ ![editAndQuit](./imgs/editAndQuit.png)
+ ![remove](./imgs/remove.png)
+
  ## Installation/Usage
  > Instructions on installing and running your application
+ 
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.

@@ -10,6 +10,19 @@ List::List(int &id) {
 
 List::~List(){
     delete displayPtr;
+    for (unsigned i = 0; i < children.size(); ++i){
+        if(children[i]->is_list()){
+            vector<Scheduler*> c = children[i]->getChildren();
+
+            for (int j = 0; j<c.size(); ++j){
+                delete c[j];
+            }
+        }
+        else{
+            delete children[i];
+        }
+    }
+
 }
 
 Scheduler* List::getList(int listID) {

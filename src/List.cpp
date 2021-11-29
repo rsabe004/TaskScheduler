@@ -13,7 +13,11 @@ List::~List(){
 }
 
 Scheduler* List::getList(int listID) {
+    if((listID-1) < this->children.size()) {
     return this->children.at(listID - 1);
+    }
+    cout << "List does not exist." << endl;
+    return nullptr;
 }
 
 int List::getID() {
@@ -67,7 +71,12 @@ void List::displayLists() {
 void List::displaySchedule() {
     cout<<"1-Full Display\n2-Compact Display\n";
     int choice;
-    cin>>choice;
+    string choiceStr;
+    cin>>choiceStr;
+	while(!this->check_num(choiceStr)) {
+		cin >> choiceStr;
+	}
+    choice = stoi(choiceStr);
     if(choice == 1){
         displayPtr = new FullDisplay;
     }
@@ -94,10 +103,18 @@ void List::editExistingTask(Scheduler* s) {
     double dbInput = 0.0;
 
     cout << "Enter the ID of the task to be edited: ";
-    cin >> taskID;
+    cin >> strInput;
+    while(!this->check_num(strInput)) {
+            cin >> strInput;
+    }
+    taskID = stoi(strInput);
 
     cout << "Enter the List the ID is under (0 if it isn't under any list): ";
-    cin >> listID;
+    cin >> strInput;
+    while(!this->check_num(strInput)) {
+            cin >> strInput;
+    }
+    listID = stoi(strInput);
 
     cout << "\n1. name\n";
     cout << "2. description\n";
@@ -105,19 +122,31 @@ void List::editExistingTask(Scheduler* s) {
     cout << "4. duration\n";
     cout << "5. due date\n";
     cout << "\nEnter the attribute you want to edit: ";
-    cin >> input;
+    cin >> strInput;
+    while(!this->check_num(strInput)) {
+            cin >> strInput;
+    }
+    input = stoi(strInput);
 
     if (input == 1 || input == 2 || input == 5) {
         cout << "Enter the new value: ";
-        cin >> strInput;
+        getline(cin>>ws, strInput);
     }
     else if (input == 3) {
         cout << "Enter the new value: ";
-        cin >> intInput;
+        cin >> strInput;
+		while(!this->check_num(strInput)) {
+			cin >> strInput;
+		}
+	    intInput = stoi(strInput);
     }
     else {
         cout << "Enter the new value: ";
-        cin >> dbInput;
+	    cin >> strInput;
+        while(!this->check_num(strInput)) {
+                cin >> strInput;
+        }
+        dbInput = stod(strInput);
     }
 
     vector<Scheduler*> children = s->getChildrenList(listID);
@@ -151,16 +180,24 @@ void List::editExistingList(Scheduler* s) {
     string strInput = "";
 
     cout << "Enter the ID of the list to be edited: ";
-    cin >> listID;
+    cin >> strInput;
+    while(!this->check_num(strInput)) {
+            cin >> strInput;
+    }
+    listID = stoi(strInput);
 
     cout << "\n1. name\n";
     cout << "2. description\n";
     cout << "3. due date\n";
     cout << "\nEnter the attribute you want to edit: ";
-    cin >> intInput;
+    cin >> strInput;
+    while(!this->check_num(strInput)) {
+            cin >> strInput;
+    }
+    intInput = stoi(strInput);
 
     cout << "Enter the new value: ";
-    cin >> strInput;
+    getline(cin>>ws, strInput);
 
     for (auto itr = s->getChildren().begin(); itr != s->getChildren().end(); ++itr) {
         if ((*itr)->getID() == listID) {
@@ -176,6 +213,23 @@ void List::editExistingList(Scheduler* s) {
                     break;
             }
             cout << "Updated list!\n";
+        }
+    }
+}
+void List::removeList(int id, vector<Scheduler*>& children) {
+    cout << "hello from lsit";
+    children.clear();
+    cout << "\nremoved list " << id << endl;
+}
+void List::removeTask(int id, vector<Scheduler*>& children) {
+    for (auto itr = children.begin(); itr != children.end(); ++itr) {
+         cout << (*itr)->getID() << endl;
+    }
+    for (auto itr = children.begin(); itr != children.end(); ++itr) {
+        if ((*itr)->getID() == id) {
+            cout << "\nerased " << (*itr)->getID() << endl;
+            children.erase(itr);
+            return;
         }
     }
 }

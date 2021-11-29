@@ -11,26 +11,26 @@
 As college students, it is crucial to stay organized and stay on top of school work. Accordingly, we decided to develop our task scheduler to allow students to have all of their tasks stored in an organized fashion that is also very easy to access and modify. Using our scheduler will not only help with academic performance but also save a ton of time. We believe that our task scheduler can help students just like us.
 
 The tools we used to build this project include
-       * [C++](https://www.cplusplus.com/) - programming language created by Bjarne Stroustrup.
-       * [Valgrind](https://valgrind.org/) - programming tool for memory leak detection.
-       * [CMake](https://cmake.org/) - software for build automation, testing, packaging and installation.
+* [C++](https://www.cplusplus.com/) - programming language created by Bjarne Stroustrup.
+* [Valgrind](https://valgrind.org/) - programming tool for memory leak detection.
+* [CMake](https://cmake.org/) - software for build automation, testing, packaging and installation.
 
 The following is the list of inputs and outpus of our task scheduler
-       * Inputs
-           * Title of task
-           * Task’s description 
-           * Importance of task (priority)
-           * Task duration 
-           * Task deadline
-       * Outputs
-           * Full Display (displays all the information regarding task/list)
-           * Compact Display (displays only the crucial information regarding the task/list)
-       * Features
-           * Ability to delete tasks  
-           * Ability to edit tasks 
-           * Display tasks
-           * Can add subtasks under a main task 
-           * Users can create a list with multiple tasks
+* Inputs
+    * Title of task
+    * Task’s description 
+    * Importance of task (priority)
+    * Task duration 
+    * Task deadline
+* Outputs
+    * Full Display (displays all the information regarding task/list)
+    * Compact Display (displays only the crucial information regarding the task/list)
+* Features
+    * Ability to delete tasks  
+    * Ability to edit tasks 
+    * Display tasks
+    * Can add subtasks under a main task 
+    * Users can create a list with multiple tasks
 
 ## Class Diagram
 ![umlDiagram](./imgs/umlDiagram.png)

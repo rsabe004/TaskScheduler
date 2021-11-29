@@ -60,7 +60,7 @@ As college students, having a task scheduler would be very useful for time manag
 ## Class Diagram
  > Include a class diagram(s) for your project and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
   
-  ![alt text](umlDiagram.png)
+  ![alt text](./imgs/umlDiagram.png)
  > We decided to use the composite and strategy pattern to develop our task scheduler. Our task scheduler consists of tasks and lists. We used a composite pattern to have both tasks and lists use the same interface, Scheduler. List serves as the composite and task serves as the leaf class. This way, the lists could have other lists and tasks as its children. Using the composite pattern made the client interaction much simpler and adding additional components is very straight forward. In our Scheduler interface, we also made sure to include the Display pointer, which brings us to the strategy pattern we used. We implemented the Display feature in out program using the strategy pattern. The pointer in our Scheduler class will decide for us which algorithm in our abstract Display class to use. Using the strategy pattern allowed us to have families of related algorithms and to vary the algorithm independelntly from the context. Without the strategy pattern, we would have had to use numerous conditional statements and would break the SOLID principle with the addition of a new algorithm.
 
   ## Phase III

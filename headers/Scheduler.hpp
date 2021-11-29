@@ -20,7 +20,7 @@ class Scheduler: public Menu {
         // Remove *removePtr;
         int id;
     public:
-        vector<Scheduler*> children;
+        //vector<Scheduler*> children;
         ~Scheduler();
         Scheduler() {
             displayPtr = nullptr;

@@ -4,6 +4,16 @@ SET(CMAKE_CXX_STANDARD 11)
 
 ADD_SUBDIRECTORY(googletest)
 
+ADD_EXECUTABLE(schedule
+	main.cpp
+	src/Display.cpp
+	src/List.cpp
+	src/Menu.cpp
+	src/Remove.cpp
+	src/Scheduler.cpp
+	src/Task.cpp
+)
+
 ADD_EXECUTABLE(test
     tests/test.cpp
     src/List.cpp

@@ -124,6 +124,7 @@ int main(){
                     schedule->getList(tmpInt)->add(task);
                 }
             }
+	
             menu.displayMenu();
             cin >> userInput;
         }

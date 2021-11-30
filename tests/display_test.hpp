@@ -12,6 +12,15 @@ TEST(TestingList, CreateListID){
 	EXPECT_EQ(ID,0);
 }
 
+TEST(TestingList, NegativeID){
+        int id2 = -2;
+        int &id=id2;
+        List* test = new List(id);
+        int ID = test->getID();
+
+        EXPECT_EQ(ID,-2);
+}
+
 TEST(TestingList, SettingName){
 	int id2 = 1;
 	int &id = id2;
@@ -142,6 +151,17 @@ TEST(TestingTask, TaskPriority){
 	EXPECT_EQ(priority, 2);
 }
 
+TEST(TestingTask, TaskPriorityNeg){
+        int id2 = 1;
+        int &id = id2;
+
+        Task* test = new Task(id);
+        test->setPriority(-2);
+        int priority = test->getPriority();
+
+        EXPECT_EQ(priority, -2);
+}
+
 TEST(TestingTask, TaskDuration){
 	int id2 = 1;
 	int &id = id2;
@@ -172,11 +192,51 @@ TEST(TestingList, ListDisplay){
 	std::stringstream out;
 	
 	test->displayLists(s);
-	test1->displayLists(s);
+	test1->displayLists(out);
 	//testdisplay->display(this);
 	//testdisplaytest->display(s);
 	EXPECT_EQ(s.str(), out.str());
 }
+
+TEST(TestingList, ListRemove){
+	int id2 = 1;
+	int &id = id2;
+
+	List* test = new List(id);
+	List* test1 = new List(id);
+	test->removeList(id, test->getChildrenList(id));
+	test1->removeList(id, test->getChildrenList(id));	
+	std::stringstream s;
+	std::stringstream out;
+
+	test->displayLists(s);
+	test1->displayLists(out);
+	EXPECT_EQ(s.str(), out.str());
+}
+		
 	
-	
+TEST(TestingList, ListAdd){
+	int id2 = 1;
+	int &id = id2;
+
+	List* test = new List(id);
+	List* test1 = new List(id);
+	test->add(test);
+	test1->add(test);
+
+	std::stringstream s;
+        std::stringstream out;
+
+        test->displayLists(s);
+        test1->displayLists(out);
+        EXPECT_EQ(s.str(), out.str());
+}
+
+TEST(TestingList, nullList){
+	static int id = 0;
+	Scheduler* test = new List(id);
+	Scheduler* test1 = test->getList(3);
+
+	EXPECT_EQ(test1, nullptr);
+}
 #endif //__DISPLAY_TEST_HPP__

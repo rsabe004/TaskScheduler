@@ -220,7 +220,6 @@ void List::editExistingList(Scheduler* s) {
     }
 }
 void List::removeList(int id, vector<Scheduler*>& children) {
-    cout << "hello from lsit";
     children.clear();
     cout << "\nremoved list " << id << endl;
 }

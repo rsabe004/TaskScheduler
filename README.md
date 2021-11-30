@@ -62,7 +62,7 @@ We decided to use the composite and strategy pattern to develop our task schedul
 2. Change directory into the local repository you just created using ```cd```
 3. Once inside the local repository, run ```cmake3 .```
 4. run ```make```
-5. run ```./scheduler``` 
+5. run ```./schedule``` 
 6. You should be now prompted with the main menu. (The specifics of how to navigate through the menu is explained with the screenshots above)
 
 ## Testing

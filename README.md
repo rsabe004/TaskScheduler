@@ -66,8 +66,6 @@ We decided to use the composite and strategy pattern to develop our task schedul
 6. You should be now prompted with the main menu. (The specifics of how to navigate through the menu is explained with the screenshots above)
 
 ## Testing
-> How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
-
 Unit Testing/CI
 
 In order to test our project, we created unit tests for task and list functions using Google Test (gtest). These unit tests were made to ensure that the functions work in the correct manner. Additionally, we implemented Continuous Integrations with Github Actions.

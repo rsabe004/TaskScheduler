@@ -67,3 +67,5 @@ We decided to use the composite and strategy pattern to develop our task schedul
 
 ## Testing
 > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+Memory Check/Free Memory
+Display pointer of Scheduler class is freed in the Scheduler destructor. The children vector of List class is freed in the list destructor by using a for loop to loop through all the children Scheduler pointers in the vector. We also delete the schedule pointer used to build the task scheduler at the end of the main.cpp.

@@ -4,5 +4,6 @@
 using namespace std;
 
 Scheduler::~Scheduler(){
-	delete displayPtr;
+    delete displayPtr;
 }
+

@@ -66,8 +66,11 @@ We decided to use the composite and strategy pattern to develop our task schedul
 6. You should be now prompted with the main menu. (The specifics of how to navigate through the menu is explained with the screenshots above)
 
 ## Testing
-> How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+Unit Testing/CI
+
+In order to test our project, we created unit tests for task and list functions using Google Test (gtest). These unit tests were made to ensure that the functions work in the correct manner. Additionally, we implemented Continuous Integrations with Github Actions.
+
 
 Memory Check/Free Memory
 
-Display pointer of Scheduler class is freed in the Scheduler destructor. The children vector of List class is freed in the list destructor by using a for loop to loop through all the children Scheduler pointers in the vector. We also delete the schedule pointer used to build the task scheduler at the end of the main.cpp.
+To view and fix memory leaks, we used Valgrind. Display pointer of Scheduler class is freed in the Scheduler destructor. The children vector of List class is freed in the list destructor by using a for loop to loop through all the children Scheduler pointers in the vector. We also delete the schedule pointer used to build the task scheduler at the end of the main.cpp.

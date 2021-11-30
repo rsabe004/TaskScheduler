@@ -153,22 +153,29 @@ TEST(TestingTask, TaskDuration){
 	EXPECT_EQ(d, 22);
 }
 
-TEST(TestingTask, TaskDisplay){
+TEST(TestingList, ListDisplay){
 	int id2 = 1;
 	int &id = id2;
 
-	Task* test = new Task(id);
-	test->setName("New Task");
-	test->setDuration(30);
+	List* test = new List(id);
+	List* test1 = new List(id);
+	test->setName("New List");
+	test1->setName("New List");
+	//test->setDuration(30);
 	test->setDueDate("November 30, 2021");
-
+	test1->setDueDate("November 30, 2021");
+	
 	//Scheduler* s;
 	//Display* testdisplay = new CompactDisplay;
 	//testdisplay->display(test);
-	//std::stringstream s;
+	std::stringstream s;
+	std::stringstream out;
+	
+	test->displayLists(s);
+	test1->displayLists(s);
 	//testdisplay->display(this);
 	//testdisplaytest->display(s);
-	//EXPECT_EQ(s.str(),"");
+	EXPECT_EQ(s.str(), out.str());
 }
 	
 	

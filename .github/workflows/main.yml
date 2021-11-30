@@ -40,6 +40,6 @@ jobs:
       # test
       - name: test
         run: |
-          cmake3 .
+          cmake .
           make
           ./test

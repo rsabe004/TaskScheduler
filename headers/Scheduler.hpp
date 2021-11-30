@@ -92,7 +92,7 @@ class List: public Scheduler {
         string dueDate;
     public:
         List(int &);
-
+	~List();
         void setName(string);
         void setDescription(string);
         void setDueDate(string);

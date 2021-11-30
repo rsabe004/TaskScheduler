@@ -64,6 +64,13 @@ void List::displayLists() {
         }
     }
 }
+void List::displayLists(std::ostream& out)const {
+    for (unsigned i = 0; i < this->children.size(); ++i) {
+        if (this->children.at(i)->is_list()) {
+            out << "List ID " << i + 1 << ": " << this->children.at(i)->getName() << endl;
+        }
+    }
+}
 void List::displaySchedule() {
     cout<<"1-Full Display\n2-Compact Display\n";
     int choice;

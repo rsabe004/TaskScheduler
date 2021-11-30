@@ -103,6 +103,7 @@ class List: public Scheduler {
 
         void displaySchedule();
         void displayLists();
+	void displayLists(std::ostream& out)const;
         void add(Scheduler*);
         int getID();
         vector<Scheduler*>& getChildren();

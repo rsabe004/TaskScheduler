@@ -152,4 +152,24 @@ TEST(TestingTask, TaskDuration){
 	
 	EXPECT_EQ(d, 22);
 }
+
+TEST(TestingTask, TaskDisplay){
+	int id2 = 1;
+	int &id = id2;
+
+	Task* test = new Task(id);
+	test->setName("New Task");
+	test->setDuration(30);
+	test->setDueDate("November 30, 2021");
+
+	//Scheduler* s;
+	//Display* testdisplay = new CompactDisplay;
+	//testdisplay->display(test);
+	//std::stringstream s;
+	//testdisplay->display(this);
+	//testdisplaytest->display(s);
+	//EXPECT_EQ(s.str(),"");
+}
+	
+	
 #endif //__DISPLAY_TEST_HPP__

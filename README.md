@@ -2,94 +2,68 @@
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # Task Scheduler 
- > Your author list below should include links to all members GitHub (remove existing author).
- 
- > Authors: [Jingwen Huang](https://github.com/JingwenHuang233),
+ Authors: [Jingwen Huang](https://github.com/JingwenHuang233),
  [Minsoo Kim](https://github.com/minsooerickim),
  [Rania Saber](https://github.com/rsabe004),
  [Hannah Bach](https://github.com/hbach24)
- 
- > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list, start thinking about the features you will implement, what design patterns can help you implement them, and why. If you want to propose your own original idea, you will have to contact an instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). Your project needs to implement at least two design patterns iteratively, which you will have to justify for later phases.The project work should be divided almost equally among team members and each member is expected to work on at least one design pattern (more than one partner may work on a pattern) and some of its test cases. You can of course help each other, but it needs to be clear who will be responsible for which patterns and for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings. While Daily Scrums are not required we highly recommend you practice them too.
- 
- > ## Expectations
- > * Incorporate **at least two** distinct design patterns. You need to include at least *one* design pattern that we will teach this session:
- >   * Composite, Strategy, Abstract Factory or Visitor
- > * All design patterns need to be linked together (it can't be two distinct projects)
- > * Your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
- > * Each member of the group must actively participate in the Github Project board and reviewing commited code.
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold one check-in meeting with your lab TA in addition to the final demo.
 
 ## Project Description
- > * Why is it important or interesting to you?
+As college students, it is crucial to stay organized and stay on top of school work. Accordingly, we decided to develop our task scheduler to allow students to have all of their tasks stored in an organized fashion that is also very easy to access and modify. Using our scheduler will not only help with academic performance but also save a ton of time. We believe that our task scheduler can help students just like us.
 
-As college students, having a task scheduler would be very useful for time management and organization. This is a unique task scheduler because it allows you to prioritize certain tasks you would like to complete.
+The tools we used to build this project include
+* [C++](https://www.cplusplus.com/) - programming language created by Bjarne Stroustrup.
+* [Valgrind](https://valgrind.org/) - programming tool for memory leak detection.
+* [CMake](https://cmake.org/) - software for build automation, testing, packaging and installation.
 
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >      * [C++](https://www.cplusplus.com/) - programming language created by Bjarne Stroustrup.
- >      * [Valgrind](https://valgrind.org/) - programming tool for memory leak detection.
- >      * [CMake](https://cmake.org/) - software for build automation, testing, packaging and installation.
+The following is the list of inputs and outpus of our task scheduler
+* Inputs
+    * Title of task
+    * Task’s description 
+    * Importance of task (priority)
+    * Task duration 
+    * Task deadline
+* Outputs
+    * Full Display (displays all the information regarding task/list)
+    * Compact Display (displays only the crucial information regarding the task/list)
+* Features
+    * Ability to delete tasks  
+    * Ability to edit tasks 
+    * Display tasks
+    * Can add subtasks under a main task 
+    * Users can create a list with multiple tasks
 
- > * What will be the input/output of your project? What are the features that the project provides?
- >      * Inputs
- >          * Title of task
- >          * Task’s description 
- >          * Task type
- >          * Importance of task (priority)
- >          * Task duration 
- >          * Task deadline
- >      * Outputs
- >          * Display task and its description 
- >          * Display list of tasks in order of importance         
- >      * Features
- >          * Ability to delete tasks  
- >          * Ability to edit tasks 
- >          * Display tasks
- >          * Undo task 
- >          * Can add subtasks under a main task 
- >          * Users can create a list with multiple tasks
-
-
- ## Phase II
- > In addition to completing the "Class Diagram" section below, you will need to:
- > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Create smaller actionable development tasks as issues and assign them to team members. Place these in the `TODO` column.
- >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
- > Include a class diagram(s) for your project and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
-  
-  ![alt text](umlDiagram.png)
- > We decided to use the composite and strategy pattern to develop our task scheduler. Our task scheduler consists of tasks and lists. We used a composite pattern to have both tasks and lists use the same interface, Scheduler. List serves as the composite and task serves as the leaf class. This way, the lists could have other lists and tasks as its children. Using the composite pattern made the client interaction much simpler and adding additional components is very straight forward. In our Scheduler interface, we also made sure to include the Display pointer, which brings us to the strategy pattern we used. We implemented the Display feature in out program using the strategy pattern. The pointer in our Scheduler class will decide for us which algorithm in our abstract Display class to use. Using the strategy pattern allowed us to have families of related algorithms and to vary the algorithm independelntly from the context. Without the strategy pattern, we would have had to use numerous conditional statements and would break the SOLID principle with the addition of a new algorithm.
-
-  ## Phase III
- > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
- > * Before the meeting you should perform a sprint plan like you did in Phase II.
- > * You should also update this README file by adding the following:
- >   * What design patterns did you use? For each design pattern you must explain in 4-5 sentences:
- >     * Why did you pick this pattern? And what feature did you implement with it?
- >     * How did the design pattern help you write better code?
- >   * An updated class diagram that reflects the design patterns you used. You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description).
- >   * Make sure your README file (and Project board) are up-to-date reflecting the current status of your project. Previous versions of the README file should still be visible through your commit history.
-> 
-> During the meeting with your TA you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
-
+![umlDiagram](./imgs/umlDiagram.png)
+We decided to use the composite and strategy pattern to develop our task scheduler. Our task scheduler consists of tasks and lists. We used a composite pattern to have both tasks and lists use the same interface, Scheduler. List serves as the composite and task serves as the leaf class. This way, the lists could have other lists and tasks as its children. Using the composite pattern made the client interaction much simpler and adding additional components is very straight forward. In our Scheduler interface, we also made sure to include the Display pointer, which brings us to the strategy pattern we used. We implemented the Display feature in out program using the strategy pattern. The pointer in our Scheduler class will decide for us which algorithm in our abstract Display class to use. Using the strategy pattern allowed us to have families of related algorithms and to vary the algorithm independelntly from the context. Without the strategy pattern, we would have had to use numerous conditional statements and would break the SOLID principle with the addition of a new algorithm.
  
- > ## Final deliverable
- > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
- 
- ## Screenshots
- > Screenshots of the input/output after running your application
- ## Installation/Usage
- > Instructions on installing and running your application
- ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+## Screenshots
+* ![createAndDisplay](./imgs/createAndDisplay.PNG)
+* ```A```
+    * When ```A``` option is chosen, the user is prompted to enter values for the list name, description, and due date. Upon entering, the scheduler automatically generates a list with the provided information
+* ```C```
+    * When ```C``` option is chosen, the user is prompted to enter values for the task name, description, priority, duration, and the due date. Then, the program asks which list the task should be inserted under. The program then automatically generates a task with the provided inputs and inserts it under the provided list number.
+* ```E```
+    * When ```E``` option is chosen, the user is prompted to choose between a ```Full Display``` and a ```Compact Display```. ```Full Display``` displays the name, id, due date, and description for lists; Name, id, poriority, description, duration, and due date for tasks. On the other hand ```Compact Display``` displays just the name and due date for lists; Name, duration, and due date for tasks.
+* ![remove](./imgs/remove.PNG)
+* ```B```
+    * When ```B``` option is chosen, the user is prompted to enter the ID of the list to be deleted. The program then automatically deletes the list and all of its contents.
+* ```D```
+    * When ```D``` option is chosen, the user is prompted to enter the ID of the task to be deleted along with the List ID it is under. The program then deletes the selected task.
+* ![editAndQuit](./imgs/editAndQuit.PNG)
+* ```F```
+    * When ```F``` option is chosen, the user is prompted to enter the ID of the task to be edited and the list it is under. The program then displays the properties of the task that can be modified. The user then enters the attribute number they desire to edit along with its new value. The program takes the new value and automatically updates the task with the new value.
+* ```G```
+    * When ```G``` option is chosen, the user is prompted to enter the ID of the list. The program then displays the properties of the list that can be modified. The user then enters the attribute number they desire to edit along with its new value. The program takes the new value and automatically updates the task with the new value.
+* ```Q```
+    * When ```Q``` option is chosen, the program simply quits
+
+## Installation/Usage
+1. Recursively clone this repository onto your local machine with ```git clone --recursive <https://github.com/cs100/final-project-hbach003-jhuan333-mkim410-rsabe004-1.git>```
+2. Change directory into the local repository you just created using ```cd```
+3. Once inside the local repository, run ```cmake3 .```
+4. run ```make```
+5. run ```./scheduler``` 
+6. You should be now prompted with the main menu. (The specifics of how to navigate through the menu is explained with the screenshots above)
+
+## Testing
+> How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.

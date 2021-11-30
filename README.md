@@ -70,7 +70,7 @@ We decided to use the composite and strategy pattern to develop our task schedul
 
 Unit Testing/CI
 
-In order to test our project, we created unit tests for task and list functions using Google Test (gtest). These unit tests were made to ensure that the functions work in the correct manner.
+In order to test our project, we created unit tests for task and list functions using Google Test (gtest). These unit tests were made to ensure that the functions work in the correct manner. Additionally, we implemented Continuous Integrations with Github Actions.
 
 
 Memory Check/Free Memory
